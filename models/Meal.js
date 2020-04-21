@@ -44,4 +44,4 @@ const MealSchema = new Schema({
   },
 });
 
-module.exports = User = mongoose.model("Meal", MealSchema);
+module.exports = Meal = mongoose.model("Meal", MealSchema);

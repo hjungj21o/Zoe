@@ -28,4 +28,4 @@ const IngredientSchema = new Schema({
   },
 });
 
-module.exports = User = mongoose.model("Ingredient", IngredientSchema);
+module.exports = Ingredient = mongoose.model("Ingredient", IngredientSchema);
