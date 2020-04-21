@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import login_form from './login_form.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class LoginForm extends React.Component {
   // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/tweets");
+      this.props.history.push("/meals");
     }
 
     // Set or clear errors
@@ -58,25 +59,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form-container">
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+          <div className="login-form-input">
+            <label className="login-email">
+              EMAIL ADDRESS
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Enter Email Address"
+              />
+            </label>
+            <label className="login-password">
+              PASSWORD
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Enter Password"
+              />
+            </label>
+            <div className="login-submit-button">
+                <input type="submit" value="Log In" />
+            </div>
+            <div className="signin-link">
+                Not a member yet? <Link to="/signup">Sign up</Link>
+            </div>
           </div>
         </form>
       </div>
