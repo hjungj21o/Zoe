@@ -6,7 +6,7 @@ const MealSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users",
   },
-  mealId: {
+  spoonacularMealId: {
     type: Number,
     required: true,
   },
@@ -14,7 +14,7 @@ const MealSchema = new Schema({
     type: String,
     required: true,
   },
-  image:{
+  image: {
     type: String,
     required: true,
   },
