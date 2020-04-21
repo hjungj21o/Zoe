@@ -28,6 +28,16 @@ const UserSchema = new Schema({
   },
   diet: {
     type: String,
+  },
+  exclusions: {
+    type: Array,
+  },
+  targetWeight: {
+    type: Number,
+    required: true,
+  },
+  mealPlan: {
+    type: Number,
     required: true,
   },
   date: {
