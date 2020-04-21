@@ -7,6 +7,8 @@ const router = express.Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const axios = require("axios");
+
 
 router.get("/current", passport.authenticate("jwt", {session: false}), (req, res) => {
   res.json({msg: "Success"});
@@ -28,7 +30,10 @@ router.post("/register", (req, res) => {
     } else {
       const newUser = new User({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        targetWeight: 150,
+        calories: 2000,
+        timeFrame: "day",
       });
 
       bcrypt.genSalt(10, (err, salt) => { 
@@ -38,7 +43,30 @@ router.post("/register", (req, res) => {
           newUser.save()
             .then(user => {
                 const payload = { id: user.id, email: user.email };
-
+                const request = axios({
+                method: "GET",
+                url:
+                  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate",
+                headers: {
+                  "content-type": "application/octet-stream",
+                  "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+                  "x-rapidapi-key": process.env.API_KEY,
+                },
+                params: {
+                  targetCalories: `${user.calories}`,
+                  timeFrame: `${user.timeFrame}`,
+                },
+              })
+                .then((response) => {
+                  data = response;
+                  // console.log(data);
+                  // let meal_ingredients;
+                  let meals = data.data.meals;
+                  console.log(meals)
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
                 jwt.sign(payload, keys.secretOrkey, { expiresIn: 3600 }, (err, token) => {
                     res.json({
                         success: true,
@@ -75,7 +103,6 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         const payload = { id: user.id, email: user.email };
-
         jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           res.json({
             success: true,
@@ -88,6 +115,8 @@ router.post("/login", (req, res) => {
       }
     });
   });
+
+
 });
 
 module.exports = router;

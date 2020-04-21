@@ -44,6 +44,17 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  
 });
 
 module.exports = User = mongoose.model("User", UserSchema);
+
+
+// To maintain your weight:
+// Daily_calories = Weigh_in_lb * 0.453592 * 23  Cal/day
+
+// To lose Weight:
+// Daily_calories - 600
+
+// To gain Weight:
+// Daily_calories + 600
