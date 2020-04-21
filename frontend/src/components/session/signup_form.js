@@ -15,6 +15,7 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  //test!
   //this will be deprecated soon, need to use another function
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
