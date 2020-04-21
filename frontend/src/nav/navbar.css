@@ -1,0 +1,25 @@
+.top-bar h1 {
+    color: #fff;
+}
+
+.top-bar p {
+    margin: 0;
+}
+
+.top-bar {
+    position: fixed;
+    width: 100%;
+    background-color: #658999;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.signup-login p {
+    display: inline-block;
+}
+
+.signup-login {
+    position: relative;
+    padding-right: 40px;
+}

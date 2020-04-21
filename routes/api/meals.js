@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
+const passport = require("passport");
 const axios = require("axios");
-const Meal = require("../../models/Meal");
-let data;
-router.get("/test", (req, res) =>
-  res.json({ msg: "This is the recipes route" })
-);
+const Meal = require('../../models/Meal');
+
+router.get("user/:user_id/meals", (req, res) => {
+    Meal.find()
+        .then(meals => res.json(meals))
+        .catch(err => res.status(404).json({ nomealsfound: 'No meals found'}));
+});
+
+
 axios({
   method: "GET",
   url:
@@ -45,7 +51,7 @@ axios({
           let new_meal = new Meal({
             //schema details
           });
-          new_meal.save();
+          //new_meal.save();
         })
         .catch((error) => {
           console.log(error);
@@ -55,4 +61,6 @@ axios({
   .catch((error) => {
     console.log(error);
   });
+
+
 module.exports = router;
