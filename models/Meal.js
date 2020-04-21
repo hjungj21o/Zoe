@@ -7,40 +7,36 @@ const MealSchema = new Schema({
     ref: "users",
   },
   mealId: {
-    type: Int16Array,
+    type: Number,
     required: true,
   },
   title: {
     type: String,
     required: true,
   },
+  image:{
+    type: String,
+    required: true,
+  },
   servings: {
-    type: Int16Array,
+    type: Number,
     required: false,
   },
   preparationMinutes: {
-    type: Int16Array,
+    type: Number,
     required: false,
   },
   cookingMinutes: {
-    type: Int16Array,
+    type: Number,
     required: false,
   },
   servings: {
-    type: Int16Array,
+    type: Number,
     required: false,
   },
   pricePerServing: {
-    type: Float32Array,
+    type: Number,
     required: trfalseue,
-  },
-  week: {
-    type: Int16Array,
-    required: false,
-  },
-  day: {
-    type: Int16Array,
-    required: false,
   },
   createdAt: {
     type: Date,

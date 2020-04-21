@@ -8,23 +8,27 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
+    index: true,
     required: true,
   },
   password: {
     type: String,
     required: true,
   },
+  weight: {
+    type: Number,
+  },
   heightFeet: {
     type: Number,
-    required: true,
   },
   heightInches: {
     type: Number,
-    required: true,
   },
-  weight: {
+  gender: {
+    type: String,
+  },
+  age: {
     type: Number,
-    required: true,
   },
   diet: {
     type: String,
@@ -36,11 +40,7 @@ const UserSchema = new Schema({
     type: Number,
     required: true,
   },
-  mealPlan: {
-    type: Number,
-    required: true,
-  },
-  date: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
