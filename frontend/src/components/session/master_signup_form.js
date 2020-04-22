@@ -9,7 +9,6 @@ class MasterSignUpForm extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       currentStep: 1,
       email: "",
@@ -45,9 +44,8 @@ class MasterSignUpForm extends React.Component {
   }
 
   updateCheckBox() {
-    let exclusionValues = this.state.exclusions
-    return (e) => 
-        exclusionValues.push(e.currentTarget.value)
+    let exclusionValues = this.state.exclusions;
+    return (e) => exclusionValues.push(e.currentTarget.value);
   }
 
   handleSubmit(e) {
@@ -57,19 +55,18 @@ class MasterSignUpForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2,
       name: this.state.name,
-      weight: this.state.weight,
-      heightFeet: this.state.heightFeet,
-      heightInches: this.state.heightInches,
+      weight: Number(this.state.weight),
+      heightFeet: Number(this.state.heightFeet),
+      heightInches: Number(this.state.heightInches),
       gender: this.state.gender,
-      age: this.state.age,
+      age: Number(this.state.age),
       diet: this.state.diet,
       exclusions: this.state.exclusions,
-      targetWeight: this.state.targetWeight,
+      targetWeight: Number(this.state.targetWeight),
       errors: {},
     };
 
-    this.props
-      .signup(user, this.props.history);
+    this.props.signup(user, this.props.history);
   }
 
   _next() {
