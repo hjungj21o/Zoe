@@ -39,7 +39,7 @@ const MealSchema = new Schema({
     required: false,
   },
   createdAt: {
-    type: Date,
+    type: String,
     required: true,
   },
 });

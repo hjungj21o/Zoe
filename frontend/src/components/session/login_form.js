@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import './login_form.css';
+import "./login_form.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -28,10 +28,9 @@ class LoginForm extends React.Component {
 
   // Handle field updates (called in the render method)
   update(field) {
-    debugger;
     return (e) =>
       this.setState({
-        [field]: e.currentTarget.value
+        [field]: e.currentTarget.value,
       });
   }
 
@@ -49,13 +48,19 @@ class LoginForm extends React.Component {
 
   // Render the session errors if there are any
   renderErrors() {
-    // return (
-    //   <ul>
-    //     {Object.keys(this.state.errors).map((error, i) => (
-    //       <li key={`error-${i}`}>{this.state.errors[error]}</li>
-    //     ))}
-    //   </ul>
-    // );
+    if (Object.keys(this.state.errors).length === 0) {
+      return <></>;
+    } else {
+      return (
+        <ul className="login-errors-ul">
+          {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              <p>{this.state.errors[error]}</p>
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -63,40 +68,40 @@ class LoginForm extends React.Component {
       <div className="login-form-container">
         <form>
           <h1>zoe</h1>
-          {/* {this.renderErrors()} */}
-            <div className="login-form-input">
-              <label className="login-email">
-                <div className="login-email-title">
-                  <p>Email Address</p>
-                </div>
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  placeholder="Enter Email"
-                />
-              </label>
-              <label className="login-password">
-                <div className="login-password-title">
-                  <p>Password</p>
-                </div>
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  placeholder="Enter Password"
-                />
-              </label>
-              {/* <div className="login-submit-button"> */}
-              <button onClick={this.handleSubmit}>Login</button>
-              {/* </div> */}
-              {/* <div className="signup-question">
+          {this.renderErrors()}
+          <div className="login-form-input">
+            <label className="login-email">
+              <div className="login-email-title">
+                <p>Email Address</p>
+              </div>
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Enter Email"
+              />
+            </label>
+            <label className="login-password">
+              <div className="login-password-title">
+                <p>Password</p>
+              </div>
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Enter Password"
+              />
+            </label>
+            {/* <div className="login-submit-button"> */}
+            <button onClick={this.handleSubmit}>Login</button>
+            {/* </div> */}
+            {/* <div className="signup-question">
                 <p>Not a member yet?&nbsp;</p>
                 <Link className="signup-link" to="/signup">
                   <p>Sign up</p>
                 </Link>
               </div> */}
-            </div>
+          </div>
         </form>
       </div>
     );

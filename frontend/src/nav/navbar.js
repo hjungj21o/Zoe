@@ -32,15 +32,25 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <Link to={"/profile"}><p>Profile</p></Link>
-          <button onClick={this.logoutUser}><p>Logout</p></button>
+          <Link to={"/profile"}>
+            <p>Profile</p>
+          </Link>
+          <button onClick={this.logoutUser}>
+            <p>Logout</p>
+          </button>
         </div>
       );
     } else {
       return (
         <div className="signup-login">
-          <Link to={"/signup"}><button><p>Sign Up</p></button></Link>
-          <button onClick={this.openModal} onBlur={this.closeModal}><p>Login</p></button>
+          <Link to={"/signup"}>
+            <button>
+              <p>Sign Up</p>
+            </button>
+          </Link>
+          <button onClick={this.openModal}>
+            <p>Login</p>
+          </button>
         </div>
       );
     }
@@ -48,13 +58,32 @@ class NavBar extends React.Component {
 
   render() {
     let topNav;
-    topNav = this.props.location.pathname === "/" ? "top-bar" : "top-bar other";
+    if (
+      this.props.location.pathname === "/" ||
+      this.props.location.pathname === "/signup"
+    ) {
+      topNav = "top-bar";
+      // } else if (this.props.location.pathname === "/signup") {
+      //   topNav = "top-bar inactive";
+    } else {
+      topNav = "top-bar other";
+    }
 
     return (
       <>
-        <div className={`login-modal-background ${this.state.modal}`}>
-          <div className={`login-modal ${this.state.modal}`} onMouseDown={this.openModal}>
-            <div onClick={this.closeModal} className="modal-x"><p><i className="fas fa-times"></i></p></div>
+        <div
+          className={`login-modal-background ${this.state.modal}`}
+          onClick={this.closeModal}
+        >
+          <div
+            className={`login-modal ${this.state.modal}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div onClick={this.closeModal} className="modal-x">
+              <p>
+                <i className="fas fa-times"></i>
+              </p>
+            </div>
             <LoginFormContainer />
           </div>
         </div>
