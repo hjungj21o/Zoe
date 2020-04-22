@@ -8,19 +8,26 @@ class Step1 extends React.Component {
 
     return (
       <div className="signup-form-container">
-        {/* {this.renderErrors()} */}
+        <div className="signup-form-title">
+          <h2>First, tell us a little bit about yourself.</h2>
+        </div>
         <div className="signup-form-input">
+          {this.props.handleErrors()}
           <label className="signup-name">
-            <div className="signup-name-title">NAME</div>
+            <div className="signup-name-title">
+              <p>Name</p>
+            </div>
             <input
               type="text"
               value={this.props.name}
               onChange={this.props.update("name")}
-              placeholder="First Last"
+              placeholder="First Name Last Name"
             />
           </label>
           <label className="signup-gender">
-            <div className="signup-gender-title">GENDER</div>
+            <div className="signup-gender-title">
+              <p>Gender</p>
+            </div>
             <select
               value={this.props.gender}
               onChange={this.props.update("gender")}
@@ -33,70 +40,53 @@ class Step1 extends React.Component {
             </select>
           </label>
           <label className="signup-age">
-            <div className="signup-age-title">AGE</div>
+            <div className="signup-age-title">
+              <p>Age</p>
+            </div>
             <input
-              type="text"
-              pattern="\d+"
+              type="number"
+              min="1"
+              max="99"
               value={this.props.age}
               onChange={this.props.update("age")}
-              placeholder=""
+              placeholder="Years"
             />
           </label>
           <label className="signup-weight">
-            <div className="signup-weight-title">WEIGHT</div>
+            <div className="signup-weight-title">
+              <p>Weight</p>
+            </div>
             <input
-              type="text"
-              pattern="\d+"
+              type="number"
+              min="1"
+              max="999"
               value={this.props.weight}
               onChange={this.props.update("weight")}
-              placeholder="0 lbs"
+              placeholder="Pounds"
             />
           </label>
-          <label className="signup-height-feet">
-            <div className="signup-height-title">HEIGHT (ft.)</div>
-            <input
-              type="text"
-              pattern="\d+"
-              value={this.props.heightFeet}
-              onChange={this.props.update("heightFeet")}
-              placeholder="Feet"
-            />
-          </label>
-          <label className="signup-height-inches">
-            <div className="signup-height-title">HEIGHT (in.)</div>
-            <input
-              type="text"
-              pattern="\d+"
-              value={this.props.heightInches}
-              onChange={this.props.update("heightInches")}
-              placeholder="Inches"
-            />
-          </label>
-          {/* <label className="signup-diet">
-              <div className="signup-diet"></div>
+          <label className="signup-height">
+            <div className="signup-height-title">
+              <p>Height</p>
+            </div>
+            <div className="signup-height-input">
               <input
-                type="text"
-                value={this.props.diet}
-                onChange={this.props.update("diet")}
+                type="number"
+                min="1"
+                max="9"
+                value={this.props.heightFeet}
+                onChange={this.props.update("heightFeet")}
+                placeholder="Feet"
               />
-            </label>
-            <label className="signup-diet">
-              <div className="signup-diet"></div>
               <input
-                type="text"
-                value={this.props.diet}
-                onChange={this.props.update("diet")}
+                type="number"
+                min="0"
+                max="11"
+                value={this.props.heightInches}
+                onChange={this.props.update("heightInches")}
+                placeholder="Inches"
               />
-            </label> */}
-          <label className="signup-target-weight">
-            <div className="signup-target-weight-title">TARGET WEIGHT</div>
-            <input
-              type="text"
-              pattern="\d+"
-              value={this.props.targetWeight}
-              onChange={this.props.update("targetWeight")}
-              placeholder="0 lbs"
-            />
+            </div>
           </label>
         </div>
       </div>

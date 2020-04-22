@@ -1,6 +1,7 @@
 import React from "react";
 import Step1 from "./step1_signup_form";
-import Step2 from "./step2_signup_form";
+import Step2 from "./step3_signup_form";
+import Step3 from "./step2_signup_form";
 import "./signup.css";
 import { Link } from "react-router-dom";
 
@@ -8,25 +9,28 @@ class MasterSignUpForm extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       currentStep: 1,
       email: "",
       password: "",
       password2: "",
       name: "",
-      weight: 0,
-      heightFeet: 0,
-      heightInches: 0,
+      weight: "",
+      heightFeet: "",
+      heightInches: "",
       gender: "",
-      age: 0,
-      diet: "Regular",
-      exclusions: "",
+      age: "",
+      diet: "",
+      exclusions: [],
       targetWeight: 0,
       errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
     this.update = this.update.bind(this);
+    this.updateCheckBox = this.updateCheckBox.bind(this);
     this._next = this._next.bind(this);
     this._prev = this._prev.bind(this);
     this.previousButton = this.previousButton.bind(this);
@@ -38,6 +42,12 @@ class MasterSignUpForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
+  }
+
+  updateCheckBox() {
+    let exclusionValues = this.state.exclusions
+    return (e) => 
+        exclusionValues.push(e.currentTarget.value)
   }
 
   handleSubmit(e) {
@@ -59,14 +69,13 @@ class MasterSignUpForm extends React.Component {
     };
 
     this.props
-      .signup(user, this.props.history)
-      .then(() => this.props.login(user));
+      .signup(user, this.props.history);
   }
 
   _next() {
     let currentStep = this.state.currentStep;
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep === 2 ? 2 : currentStep + 1;
+    currentStep = currentStep >= 2 ? 3 : currentStep + 1;
     this.setState({
       currentStep: currentStep,
     });
@@ -75,7 +84,7 @@ class MasterSignUpForm extends React.Component {
   _prev() {
     let currentStep = this.state.currentStep;
     // If the current step is 2, then subtract one on "previous" button click
-    currentStep = currentStep === 1 ? 1 : currentStep - 1;
+    currentStep = currentStep <= 1 ? 1 : currentStep - 1;
     this.setState({
       currentStep: currentStep,
     });
@@ -91,7 +100,7 @@ class MasterSignUpForm extends React.Component {
           type="button"
           onClick={this._prev}
         >
-          Previous
+          <p>Previous</p>
         </button>
       );
     }
@@ -102,14 +111,14 @@ class MasterSignUpForm extends React.Component {
   nextButton() {
     let currentStep = this.state.currentStep;
     // If the current step is not 3, then render the "next" button
-    if (currentStep < 2) {
+    if (currentStep < 3) {
       return (
         <button
           className="btn btn-primary float-right"
           type="button"
           onClick={this._next}
         >
-          Next
+          <p>Next</p>
         </button>
       );
     }
@@ -119,21 +128,33 @@ class MasterSignUpForm extends React.Component {
 
   submitButton() {
     let currentStep = this.state.currentStep;
-    if (currentStep !== 1) {
+    if (currentStep === 3) {
       return (
         <button
-          className="btn btn-secondary float-right"
+          className="btn btn-tertiary"
           type="button"
           onClick={this.handleSubmit}
         >
-          Sign Up
+          <p>Sign Up</p>
         </button>
       );
     }
   }
 
   handleErrors() {
-    //Handle errors message here
+    if (Object.keys(this.props.errors).length === 0) {
+      return <></>;
+    } else {
+      return (
+        <ul className="login-errors-ul">
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              <p>{this.props.errors[error]}</p>
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -141,19 +162,12 @@ class MasterSignUpForm extends React.Component {
       <div className="master-signup-form-container-background">
         <div className="master-signup-form-container">
           <div className="master-signup-form">
-            <p>Step {this.state.currentStep} of 2 </p>
-
+            {/* <p>Step {this.state.currentStep} of 3 </p> */}
             <form onSubmit={this.handleSubmit}>
+              {/* {this.handleErrors()} */}
               <Step1
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}
-                update={this.update}
-                email={this.state.email}
-                password={this.state.password}
-                password2={this.state.password2}
-              />
-              <Step2
-                currentStep={this.state.currentStep}
+                handleErrors={this.handleErrors}
                 handleChange={this.handleChange}
                 update={this.update}
                 name={this.state.name}
@@ -162,13 +176,31 @@ class MasterSignUpForm extends React.Component {
                 heightInches={this.state.heightInches}
                 gender={this.state.gender}
                 age={this.state.age}
+              />
+              <Step2
+                currentStep={this.state.currentStep}
+                handleErrors={this.handleErrors}
+                handleChange={this.handleChange}
+                update={this.update}
+                updateCheckBox={this.updateCheckBox}
                 diet={this.state.diet}
                 exclusions={this.state.exlusions}
                 targetWeight={this.state.targetWeight}
               />
-              {this.previousButton()}
-              {this.nextButton()}
-              {this.submitButton()}
+              <Step3
+                currentStep={this.state.currentStep}
+                handleChange={this.handleChange}
+                handleErrors={this.handleErrors}
+                update={this.update}
+                email={this.state.email}
+                password={this.state.password}
+                password2={this.state.password2}
+              />
+              <div className="btns">
+                {this.previousButton()}
+                {this.nextButton()}
+                {this.submitButton()}
+              </div>
             </form>
           </div>
         </div>
