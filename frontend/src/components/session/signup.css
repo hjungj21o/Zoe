@@ -1,0 +1,162 @@
+.master-signup-form-container {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.master-signup-form-container input, .master-signup-form-container select {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 14px;
+  box-sizing: border-box;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.master-signup-form-container select {
+  height: 25px;
+  width: 100px;
+}
+
+.signup-form-input p {
+  margin-bottom: 5px;
+}
+
+.signup-height-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-height input {
+  width: 50%;
+}
+
+.signup-height input:first-child {
+  margin-right: 10px;
+}
+
+.master-signup-form-container-background {
+  content: " ";
+  display: block;
+  background: url("https://zoe-image.s3.amazonaws.com/backg.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.master-signup-form {
+  margin: 0 auto;
+  color: #fff;
+  padding-top: 80px;
+}
+
+.master-signup-form h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.signup-exclusions ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.signup-exclusions li {
+  display: flex;
+  padding-right: 10px;
+}
+
+.signup-exclusions li input {
+  margin-right : 10px;
+  padding: 0;
+  width: 12px;
+}
+
+.btn-primary {
+  background-color: #5c8001;
+  border: none;
+  border-radius: 3px;
+  width: 200px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 12px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #679436;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #444;
+    border: none;
+    border-radius: 3px;
+    width: 200px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 12px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.btn-tertiary {
+    background-color: #004c7f;
+    border: none;
+    border-radius: 3px;
+    width: 200px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 12px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-tertiary:hover {
+    background-color: #0075c4;
+    color: #fff;
+}
+
+.signup-form-input {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.signup-form-title {
+  text-align: center;
+  width: 600px;
+}
+
+.btns {
+  width: 450px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-exclusion {
+  margin-bottom: 10px;
+}

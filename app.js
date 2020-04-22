@@ -6,13 +6,21 @@ const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const meals = require("./routes/api/meals");
 const bodyParser = require("body-parser");
-const passport = require("passport");
+// const passport = require("passport");
+const path = require("path");
+require("dotenv").config();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("/", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(passport.initialize());
-require("./config/passport")(passport);
+// app.use(passport.initialize());
+// require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/meals", meals);
 
