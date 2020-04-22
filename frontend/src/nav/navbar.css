@@ -1,5 +1,10 @@
+.login-modal.active, .login-modal-background.active {
+    display: block;
+}
+
 .top-bar h1 {
     color: #fff;
+    font-family: 'Baloo Bhaina 2', cursive;
 }
 
 .top-bar p {
@@ -9,10 +14,10 @@
 .top-bar {
     position: fixed;
     width: 100%;
-    background-color: #658999;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px 50px;
+    display: table;
 }
 
 .signup-login p {
@@ -21,5 +26,60 @@
 
 .signup-login {
     position: relative;
-    padding-right: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    padding-right: 100px;
+}
+
+.logout-profile {
+    background-color: #000;
+}
+
+.top-bar button {
+    background-color: #fa7921;
+    border: none;
+    border-radius: 30px;
+    width: 100px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.top-bar button:hover {
+    background-color: #f26531;
+}
+
+.top-bar.other {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 50px;
+}
+
+.login-modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 2;
+}
+
+.login-modal-background {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.modal-x {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
 }

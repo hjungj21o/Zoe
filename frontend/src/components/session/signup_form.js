@@ -59,6 +59,7 @@ class SignupForm extends React.Component {
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
+            <br/><br/><br/>
             <br />
             <input
               type="text"
