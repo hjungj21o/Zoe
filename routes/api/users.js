@@ -25,6 +25,14 @@ router.post("/register", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
+  let delta;
+  if (req.body.targetWeight > req.body.weight) {
+    delta = 1000;
+  } else if (req.body.targetWeight < req.body.weight) {
+    delta = -200;
+  } else {
+    delta = 0;
+  }
 
   let targetCalories;
   if (req.body.gender === "Male") {
@@ -33,14 +41,16 @@ router.post("/register", (req, res) => {
       6.2 * req.body.weight +
       12.7 * req.body.heightFeet * 12 +
       12.7 * req.body.heightInches -
-      6.76 * req.body.age;
+      6.76 * req.body.age +
+      delta;
   } else {
     targetCalories =
       655.1 +
       4.35 * req.body.weight +
       4.7 * req.body.heightFeet * 12 +
       4.7 * req.body.heightInches -
-      4.7 * req.body.age;
+      4.7 * req.body.age +
+      delta;
   }
 
   User.findOne({ email: req.body.email }).then((user) => {
@@ -53,7 +63,13 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
+        weight: req.body.weight,
+        heightFeet: req.body.heightFeet,
+        heightInches: req.body.heightInches,
+        gender: req.body.gender,
         targetWeight: req.body.targetWeight,
+        diet: req.body.diet,
+        exclusions: req.body.exclusions,
         targetCalories: targetCalories,
       });
 
@@ -64,6 +80,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
+              console.log(user);
               const payload = { id: user.id, email: user.email };
               axios({
                 method: "GET",
@@ -78,6 +95,8 @@ router.post("/register", (req, res) => {
                 params: {
                   targetCalories,
                   timeFrame: "day",
+                  diet: user.diet,
+                  exclude: user.exclusions.join("%2C "),
                 },
               })
                 .then((response) => {
@@ -90,8 +109,12 @@ router.post("/register", (req, res) => {
                     let new_meal = new Meal({
                       spoonacularMealId: meal.id,
                       title: meal.title,
+                      readyInMinutes: meal.readyInMinutes,
+                      servings: meal.servings,
                       image: `https://spoonacular.com/recipeImages/${meal.id}-312x231`,
-                      createdAt: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
+                      mealDate: `${date.getFullYear()}-${
+                        date.getMonth() + 1
+                      }-${date.getDate()}`,
                       userId: user.id,
                     });
                     new_meal.save();
