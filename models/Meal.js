@@ -18,15 +18,7 @@ const MealSchema = new Schema({
     type: String,
     required: true,
   },
-  servings: {
-    type: Number,
-    required: false,
-  },
-  preparationMinutes: {
-    type: Number,
-    required: false,
-  },
-  cookingMinutes: {
+  readyInMinutes: {
     type: Number,
     required: false,
   },
@@ -34,11 +26,7 @@ const MealSchema = new Schema({
     type: Number,
     required: false,
   },
-  pricePerServing: {
-    type: Number,
-    required: false,
-  },
-  createdAt: {
+  mealDate: {
     type: String,
     required: true,
   },
