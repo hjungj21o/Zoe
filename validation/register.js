@@ -10,14 +10,14 @@ module.exports = function validateRegisterInput(data) {
   data.password2 = validText(data.password2) ? data.password2 : "";
   data.name = validText(data.name) ? data.name : "";
   data.gender = validText(data.gender) ? data.gender : "";
-  data.age = validNum(data.num) ? data.num : 0;
+  data.age = validNum(data.age) ? data.age : 0;
   data.weight = validNum(data.weight) ? data.weight : 0;
   data.heightFeet = validNum(data.heightFeet) ? data.heightFeet : 0;
   data.heightInches = validNum(data.heightInches) ? data.heightInches : 0;
   data.targetWeight = validNum(data.targetWeight) ? data.targetWeight : 0;
 
   if (data.name.length === 0) {
-    errors.name = "Name is required"
+    errors.name = "Name is required";
   }
 
   if (!Number.isInteger(data.age)) {
@@ -29,13 +29,13 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (!Number.isInteger(data.weight)) {
-    errors.age = "Weight must be an integer";
+    errors.weight = "Weight must be an integer";
   }
 
   if (data.weight < 1 || data.weight > 999) {
     errors.weight = "Weight must be between 1 and 999 lbs";
   }
-  
+
   if (
     !Number.isInteger(data.heightFeet) ||
     !Number.isInteger(data.heightInches)
@@ -49,7 +49,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (data.heightFeet < 1) {
-    errors.heightFeet = "Are you really less than 1 foot tall?"
+    errors.heightFeet = "Are you really less than 1 foot tall?";
   }
 
   if (data.heightInches > 11 || data.heightInches < 0) {
