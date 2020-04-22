@@ -8,6 +8,14 @@ h1 {
     font-family: 'Baloo Bhaina 2', cursive;
 }
 
+h2 {
+    font-family: 'Baloo Bhaina 2', cursive;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+    line-height: 40px;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -15,6 +23,10 @@ p {
 
 a {
     text-decoration: none;
+}
+
+input, button {
+    outline: none;
 }
 
 .main-container {
