@@ -40,6 +40,9 @@ const UserSchema = new Schema({
     type: Number,
     required: true,
   },
+  targetCalories: {
+    type: Number,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

@@ -36,10 +36,10 @@ const MealSchema = new Schema({
   },
   pricePerServing: {
     type: Number,
-    required: trfalseue,
+    required: false,
   },
   createdAt: {
-    type: Date,
+    type: String,
     required: true,
   },
 });

@@ -1,0 +1,33 @@
+.master-signup-form-container {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+}
+
+.master-signup-form-container-background {
+  content: " ";
+  display: block;
+  background: url("https://zoe-image.s3.amazonaws.com/background.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.master-signup-form {
+  margin: 0 auto;
+  width: 500px;
+  color: #fff;
+  padding-top: 60px;
+}
+
+.master-signup-form h1 {
+  text-align: center;
+  color: #fff;
+}
