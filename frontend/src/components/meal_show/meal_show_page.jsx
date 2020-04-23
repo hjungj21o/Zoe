@@ -42,7 +42,7 @@ class MealShowPage extends React.Component {
             <div className="meal-summary">{parse(mealSummary)}</div>
             <div class="meal-details">
               <div className="meals-instructions">
-                <div>
+                <div className="ingredients-only">
                   <h2>Ingredients</h2>
                   <ul>
                     {meal.ingredients.map((ingredient) => {
