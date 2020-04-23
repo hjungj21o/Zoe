@@ -23,6 +23,8 @@ class MasterSignUpForm extends React.Component {
       diet: "",
       exclusions: [],
       targetWeight: 0,
+      male: "",
+      female: "",
       errors: {},
     };
 
@@ -37,10 +39,14 @@ class MasterSignUpForm extends React.Component {
   }
 
   update(field) {
-    return (e) =>
+    return (e) => {
+      if (e.currentTarget.value === "F") this.setState({ female: "blue", male: "" });
+      if (e.currentTarget.value === "M") this.setState({ male: "blue", female: "" });
+
       this.setState({
         [field]: e.currentTarget.value,
       });
+    }
   }
 
   updateCheckBox() {
@@ -67,6 +73,7 @@ class MasterSignUpForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history);
+
   }
 
   _next() {
@@ -113,6 +120,7 @@ class MasterSignUpForm extends React.Component {
         <button
           className="btn btn-primary float-right"
           type="button"
+          // onClick={this._next}
           onClick={this._next}
         >
           <p>Next</p>
@@ -142,15 +150,58 @@ class MasterSignUpForm extends React.Component {
     if (Object.keys(this.props.errors).length === 0) {
       return <></>;
     } else {
-      return (
-        <ul className="login-errors-ul">
-          {Object.keys(this.props.errors).map((error, i) => (
-            <li key={`error-${i}`}>
-              <p>{this.props.errors[error]}</p>
-            </li>
-          ))}
-        </ul>
-      );
+      if (this.state.currentStep === 1) {
+        return (
+          <ul>
+            {Object.keys(this.props.errors).map((error, i) => {
+              if (
+                error === "name" ||
+                error === "gender" ||
+                error === "age" ||
+                error === "weight" ||
+                error === "heightFeet" ||
+                error === "heightInches"
+              ) {
+                return (
+                  <li key={`error-${i}`} className="signup-errors-ul">
+                    <p>{this.props.errors[error]}</p>
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        );
+      } else if (this.state.currentStep === 2) {
+        return (
+          <ul>
+            {Object.keys(this.props.errors).map((error, i) => {
+              if (
+                error === "diet" ||
+                error === "exclusions" ||
+                error === "targetWeight"
+              ) {
+                return (
+                  <li key={`error-${i}`} className="signup-errors-ul">
+                    <p>{this.props.errors[error]}</p>
+                  </li>
+                );
+              }
+            })}
+          </ul>
+        );
+      } else {
+        return (
+          <ul>
+            {Object.keys(this.props.errors).map((error, i) => {
+                return (
+                  <li key={`error-${i}`} className="signup-errors-ul">
+                    <p>{this.props.errors[error]}</p>
+                  </li>
+                );
+            })[0]}
+          </ul>
+        );
+      }
     }
   }
 
@@ -160,8 +211,8 @@ class MasterSignUpForm extends React.Component {
         <div className="master-signup-form-container">
           <div className="master-signup-form">
             {/* <p>Step {this.state.currentStep} of 3 </p> */}
-            <form onSubmit={this.handleSubmit}>
-              {/* {this.handleErrors()} */}
+            {/* <form onSubmit={this.handleSubmit}> */}
+            <form>
               <Step1
                 currentStep={this.state.currentStep}
                 handleErrors={this.handleErrors}
@@ -173,6 +224,8 @@ class MasterSignUpForm extends React.Component {
                 heightInches={this.state.heightInches}
                 gender={this.state.gender}
                 age={this.state.age}
+                male={this.state.male}
+                female={this.state.female}
               />
               <Step2
                 currentStep={this.state.currentStep}

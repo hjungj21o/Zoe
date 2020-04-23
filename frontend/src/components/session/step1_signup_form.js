@@ -28,7 +28,15 @@ class Step1 extends React.Component {
             <div className="signup-gender-title">
               <p>Gender</p>
             </div>
-            <select
+            <div className="signup-gender-btn">
+              <button className={this.props.female} onClick={this.props.update("gender")} value="F">
+                <p>Female</p>
+              </button>
+              <button className={this.props.male} onClick={this.props.update("gender")} value="M">
+                <p>Male</p>
+              </button>
+            </div>
+            {/* <select
               value={this.props.gender}
               onChange={this.props.update("gender")}
             >
@@ -37,7 +45,7 @@ class Step1 extends React.Component {
               </option>
               <option>M</option>
               <option>F</option>
-            </select>
+            </select> */}
           </label>
           <label className="signup-age">
             <div className="signup-age-title">
