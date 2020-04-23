@@ -9,6 +9,12 @@ class MealShowPage extends React.Component {
     this.props.fetchMeal(this.props.match.params.meal_id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.meal_id !== this.props.match.params.meal_id) {
+      this.props.fetchMeal(this.props.match.params.meal_id);
+    }
+  }
+
   render() {
     debugger;
     const { meal } = this.props;
