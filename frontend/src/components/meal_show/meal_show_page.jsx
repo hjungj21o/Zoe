@@ -10,6 +10,7 @@ class MealShowPage extends React.Component {
   }
 
   render() {
+    debugger;
     const { meal } = this.props;
     let mealInfo;
     if (meal) {

@@ -77,6 +77,7 @@ router.get("/:meal_id", (req, res) => {
       resIngredients.forEach((ingredient) => {
         ingredients.push(ingredient.original);
       });
+      console.log(response);
       meal = {
         mealId: data.id,
         title: data.title,
