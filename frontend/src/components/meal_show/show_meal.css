@@ -29,9 +29,9 @@
     margin-top: 30px;
     margin-bottom: 50px;
     max-width: 556px;
-    min-width: 556px;
+    min-width: 50%;
     max-height: 370px;
-    min-height: 370px;
+    min-height: 50%;
 }
 
 .meal-details{
