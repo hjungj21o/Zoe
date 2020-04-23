@@ -1,10 +1,11 @@
 .container2{
-    background-color: olive;
+    /* background-color: olive; */
     width: 100%;
+  
 }
 
 .main-text-container {
-    background-color: red;
+    /* background-color: red; */
     padding: 10px;
     padding-top: 22vh;
     width: 98%;
@@ -12,12 +13,15 @@
 
 .meal-summary{
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
      padding-bottom: 22px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .big-image{
-    background-color: yellow;
+    /* background-color: yellow; */
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 30px;
@@ -29,17 +33,18 @@
 }
 
 .meal-details{
-    background-color: brown;
+    /* background-color: brown; */
     display: flex;
     flex-direction:row-reverse;
-    /* width: 90%; */
-    /* padding: 10px; */
-    /* position: absolute; */
-    /* margin: 0 auto; */
-   
-    /* margin-left: 200px; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
 }
 .meals-instructions{
-    background-color:green;
+    /* background-color:green; */
     width:70%;
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
 }

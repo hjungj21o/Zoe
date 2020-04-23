@@ -17,21 +17,32 @@ class MealShowPage extends React.Component {
   }
 
   render() {
-    // debugger;
     const { meal } = this.props;
     
     let mealInfo;
     if (meal) {
 
       const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
+      let mealSummary=meal.summary;
 
+      debugger;
+      mealSummary = mealSummary.slice(
+        0,
+        mealSummary.indexOf("All things considered")
+      );
+       mealSummary = mealSummary.slice(
+         0,
+         mealSummary.indexOf("Taking all factors into account")
+       );
+      
       mealInfo = (
         <div className="main-container2">
           <div className="main-text-container">
             <h1>{meal.title}</h1>
 
             <div className="meal-summary">
-              {parse(meal.summary)}
+              {parse(mealSummary)}
+              {/* {meal.summary} */}
             </div>
 
             <div class="meal-details">
