@@ -1,6 +1,6 @@
 .master-signup-form-container {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.68);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -234,7 +234,7 @@ li.signup-errors-ul {
 }
 
 button.blue {
-  background-color: #00652a;
-  border: 1px solid #00652a;
+  background-color: #ad0101;
+  border: 1px solid #ad0101;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
