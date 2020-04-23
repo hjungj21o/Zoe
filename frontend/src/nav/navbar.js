@@ -89,7 +89,7 @@ class NavBar extends React.Component {
         </div>
         <div className={topNav}>
           <Link to={"/"}>
-            <h1>zoe</h1>
+            <img src={require("./zoeLogo2.png")} className="logo" />
           </Link>
           {this.getLinks()}
         </div>

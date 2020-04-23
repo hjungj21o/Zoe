@@ -70,6 +70,11 @@
   background-color: #447604;
 }
 
+.profile-logout {
+  display: flex;
+  align-items: center;
+  padding-right: 100px;
+}
 .top-bar.inactive {
   display: none;
 }
@@ -106,4 +111,11 @@
   font-size: 20px;
   cursor: pointer;
   color: #333;
+}
+
+.logo{
+  height:32px;
+  padding: 0px;
+  margin: 0px;
+  /* background-color: seagreen; */
 }
