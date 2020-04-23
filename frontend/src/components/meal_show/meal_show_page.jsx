@@ -39,26 +39,28 @@ class MealShowPage extends React.Component {
         <div className="main-container2">
           <div className="main-text-container">
             <h1>{meal.title}</h1>
-
-            <div className="meal-summary">
-              {parse(mealSummary)}
-              {/* {meal.summary} */}
-            </div>
-
+            <div className="meal-summary">{parse(mealSummary)}</div>
             <div class="meal-details">
-              <img className="big-image" src={meal.image} />
-
               <div className="meals-instructions">
-                <h2>Ingredients</h2>
-                <ul>
-                  {meal.ingredients.map((ingredient) => {
-                    return <li>{ingredient}</li>;
-                  })}
-                </ul>
-                <br></br>
-                {parse(mealInstructionsHtml)}
+                <div>
+                  <h2>Ingredients</h2>
+                  <ul>
+                    {meal.ingredients.map((ingredient) => {
+                      return <li>{ingredient}</li>;
+                    })}
+                  </ul>
+                </div>
+                <div className="instructions-only">
+                  <br></br>
+                  {parse(mealInstructionsHtml)}
+                </div>
+              </div>
+
+              <div className="image-container">
+                <img className="big-image" src={meal.image} />
               </div>
             </div>
+            
           </div>
         </div>
       );
