@@ -1,0 +1,142 @@
+.hideme{
+    display: none; 
+}
+
+.day-meal-container {
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.day-meal-container h1 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 30px;
+    margin-left: 15px;
+}
+
+.day-meal-container p {
+    color: #333;
+}
+
+.days {
+    box-shadow: 0 3px 3px -2px rgba(0,0,0,.1);
+    padding: 20px 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.day-label {
+    cursor: pointer;
+    margin-right: 5%;
+    margin-left: 5%;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.day-item {
+    position: absolute;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.day-item ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* display: flex; */
+    /* position: absolute; */
+    /* margin-left: -20%; */
+}
+
+.days-meals {
+    display: flex;
+}
+
+.day-item img {
+    margin-top: -35px;
+    width: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    /* filter: grayscale(80%); */
+}
+
+/* .day-item img:hover {
+    filter: grayscale(0%);
+} */
+
+.day-item li {
+    margin: 0 15px;
+    text-align: center;
+}
+
+.meal-preview {
+    /* display: flex; */
+    width: 320px;
+    min-height: 300px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.meal-preview-text {
+    padding: 20px;
+    text-align: left;
+}
+
+.meal-preview-day {
+    font-size: 13px;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    padding: 10px;
+    width: 180px;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+.meal-preview-text-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.meal-preview-text-desc p {
+    font-size: 13px;
+}
+
+.meal-preview-text-desc i {
+    padding-bottom: 2px;
+    width: 20px;
+}
+
+.meal-preview-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 22px;
+    margin-bottom: 5px;
+}
+
+.meal-preview-btn button {
+    background-color: #fa7921;
+    border: none;
+    border-radius: 3px;
+    width: 200px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    /* margin-top: 15px; */
+    padding: 12px;
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.meal-preview-btn button:hover {
+    background-color: #f26531;
+}
