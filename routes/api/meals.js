@@ -28,6 +28,8 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
           params: {
             targetCalories: user.targetCalories,
             timeFrame: "day",
+            diet: user.diet,
+            exclude: user.exclusions.join("%2C "),
           },
         })
           .then((response) => {
