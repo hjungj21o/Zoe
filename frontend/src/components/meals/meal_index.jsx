@@ -6,14 +6,15 @@ class MealIndex extends React.Component{
     constructor(props){
         super(props)
 
+        debugger
         this.week = []; 
         let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]; 
 
-        let today = new Date(); 
-        let current_date_arr= today.toString().split(" "); 
+        this.today = new Date(); 
+        let current_date_arr= this.today.toString().split(" "); 
         let offset = days.indexOf(current_date_arr[0])
 
-        let monday = new Date(today);
+        let monday = new Date(this.today);
         monday.setDate(monday.getDate() - offset);
         this.week.push(monday);
        
@@ -42,7 +43,10 @@ class MealIndex extends React.Component{
         sunday.setDate(sunday.getDate() + 1);
         this.week.push(sunday);       
 
+        
     }
+
+
 
     render(){
         

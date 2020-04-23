@@ -33,17 +33,34 @@ class DaysMealsCard extends React.Component {
         
     }
 
-    render(){
+    componentDidMount() {
+        let today = new Date(); 
+        let id = this.props.currentUserId;
+        let data = { userId: id, mealDate: this.dateString }; 
 
-        let test = this.props.meals.length != 0 ? this.props.meals.map((meal, index) => {
+        if (this.props.day.getUTCMonth() === today.getUTCMonth() &&
+            this.props.day.getUTCDate() === today.getUTCDate() &&
+            this.props.day.getUTCFullYear() === today.getUTCFullYear()){
+                this.props.fetchUserMeals(data)
+            }
+    }
+
+    render(){
+        debugger
+        let days_meals = this.props.meals.length != 0 ? this.props.meals.map((meal, index) => {
             return (
-                <MealIndexItem key={index} meal={meal}/>
+                <MealIndexItem key={index} meal={meal} index={index} />
             )
         })
         : "";
 
-        let display = this.props.day === this.props.selectedDay ? "showme" : "hideme";
+        let display = (this.props.day.getUTCMonth() === this.props.selectedDay.getUTCMonth() && 
+            this.props.day.getUTCDate() === this.props.selectedDay.getUTCDate() &&
+            this.props.day.getUTCFullYear() === this.props.selectedDay.getUTCFullYear()
+        ) ? "showme" : "hideme";
+        
 
+        debugger
         
         return(
             <>
@@ -51,9 +68,11 @@ class DaysMealsCard extends React.Component {
                     <p>{this.props.day.toString().split(" ")[0]}</p>
                 </div>
                 <div className={`day-item ${display}`}>
-                    <h1>{this.fullDateString}</h1>
                     <ul>
-                        {test} {/* <MealIndexItem /> */}
+                        <h1>{this.fullDateString}</h1>
+                        <nav className="days-meals">
+                            {days_meals}
+                        </nav>
                     </ul>
                 </div>
             </>

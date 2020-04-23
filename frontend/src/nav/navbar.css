@@ -55,11 +55,19 @@
 
 .top-bar.other {
   position: initial;
-  background-color: #004c7f;
+  background-color: #679436;
   padding: 0 50px;
   display: flex;
   justify-content: space-between;
   display: table;
+}
+
+.top-bar.other button {
+  background-color: #5c8001;
+}
+
+.top-bar.other button:hover {
+  background-color: #447604;
 }
 
 .top-bar.inactive {

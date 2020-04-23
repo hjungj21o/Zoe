@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #fafafa;
 }
 
 h1 {
@@ -15,6 +16,11 @@ h2 {
     padding: 0;
     margin-bottom: 30px;
     line-height: 40px;
+}
+
+hr {
+    border: 0.5px solid #ddd;
+    margin: 20px 0;
 }
 
 p {
