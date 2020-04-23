@@ -1,0 +1,22 @@
+.big-image{
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 30px;
+    margin-bottom: 50px;
+    max-width: 50%;
+    min-width: 50%;
+}
+
+.meal-details{
+    display: flex;
+    flex-direction:row-reverse;
+    width: 90%;
+    padding: 10px;
+    position: absolute;
+    margin: 0 auto;
+   
+    /* margin-left: 200px; */
+}
+.meals-instructions{
+    width:70%;
+}

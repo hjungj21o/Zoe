@@ -24,27 +24,34 @@ class MealShowPage extends React.Component {
     if (meal) {
 
       const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
-      
-      mealInfo = (
-        <div>
-          <h1>{meal.title}</h1>
-          <img src={meal.image} />
 
-          <span>
-            <h2>Ingredients</h2>
-            <ul>
-              {meal.ingredients.map((ingredient) => {
-                return <li>{ingredient}</li>;
-              })}
-            </ul>
-          </span>
-          {parse(mealInstructionsHtml)}
+      mealInfo = (
+        <div className="main-container2">
+          <div className="main-text-container">
+            <h1>{meal.title}</h1>
+
+            {parse(meal.summary)}
+            
+            <div class="meal-details">
+              <img className="big-image" src={meal.image} />
+
+              <div className="meals-instructions">
+                <h2>Ingredients</h2>
+                <ul>
+                  {meal.ingredients.map((ingredient) => {
+                    return <li>{ingredient}</li>;
+                  })}
+                </ul>
+                {parse(mealInstructionsHtml)}
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
       mealInfo = "";
     }
-    return <div>{mealInfo};</div>;
+    return <div>{mealInfo}</div>;
   }
 }
 
