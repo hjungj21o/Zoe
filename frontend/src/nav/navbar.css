@@ -54,10 +54,18 @@
 }
 
 .top-bar.other {
+  /* position: absolute; */
+  display: flex;
+  /* width: 100%; */
   background-color: rgba(0, 0, 0, 0.7);
   padding: 5px 50px;
 }
 
+.profile-logout {
+  display: flex;
+  align-items: center;
+  padding-right: 100px;
+}
 .top-bar.inactive {
   display: none;
 }

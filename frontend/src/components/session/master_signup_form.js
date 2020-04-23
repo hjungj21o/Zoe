@@ -181,7 +181,7 @@ class MasterSignUpForm extends React.Component {
                 update={this.update}
                 updateCheckBox={this.updateCheckBox}
                 diet={this.state.diet}
-                exclusions={this.state.exlusions}
+                exclusions={this.state.exclusions}
                 targetWeight={this.state.targetWeight}
               />
               <Step3
