@@ -1,5 +1,6 @@
 .container2{
-    /* background-color: olive; */
+    /* background-color: olive;
+    border-style: double; */
     width: 98%;
   
 }
@@ -8,7 +9,8 @@
     /* background-color: red; */
     padding: 10px;
     padding-top: 22vh;
-    width: 98%;
+    width: 96%;
+    margin: 0 auto;
 }
 
 .meal-summary{
