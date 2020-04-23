@@ -1,22 +1,45 @@
+.container2{
+    background-color: olive;
+    width: 100%;
+}
+
+.main-text-container {
+    background-color: red;
+    padding: 10px;
+    padding-top: 22vh;
+    width: 98%;
+}
+
+.meal-summary{
+    width: 100%;
+    background-color: aquamarine;
+     padding-bottom: 22px;
+}
+
 .big-image{
+    background-color: yellow;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 30px;
     margin-bottom: 50px;
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 556px;
+    min-width: 556px;
+    max-height: 370px;
+    min-height: 370px;
 }
 
 .meal-details{
+    background-color: brown;
     display: flex;
     flex-direction:row-reverse;
-    width: 90%;
-    padding: 10px;
-    position: absolute;
-    margin: 0 auto;
+    /* width: 90%; */
+    /* padding: 10px; */
+    /* position: absolute; */
+    /* margin: 0 auto; */
    
     /* margin-left: 200px; */
 }
 .meals-instructions{
+    background-color:green;
     width:70%;
 }

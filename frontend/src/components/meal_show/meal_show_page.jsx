@@ -30,8 +30,10 @@ class MealShowPage extends React.Component {
           <div className="main-text-container">
             <h1>{meal.title}</h1>
 
-            {parse(meal.summary)}
-            
+            <div className="meal-summary">
+              {parse(meal.summary)}
+            </div>
+
             <div class="meal-details">
               <img className="big-image" src={meal.image} />
 
@@ -42,6 +44,7 @@ class MealShowPage extends React.Component {
                     return <li>{ingredient}</li>;
                   })}
                 </ul>
+                <br></br>
                 {parse(mealInstructionsHtml)}
               </div>
             </div>
