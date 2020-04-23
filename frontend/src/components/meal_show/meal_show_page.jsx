@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 class MealShowPage extends React.Component {
   constructor(props) {
@@ -16,20 +17,28 @@ class MealShowPage extends React.Component {
   }
 
   render() {
-    debugger;
+    // debugger;
     const { meal } = this.props;
+    
     let mealInfo;
     if (meal) {
+
+      const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
+      
       mealInfo = (
         <div>
           <h1>{meal.title}</h1>
           <img src={meal.image} />
-          <ul>
-            {meal.ingredients.map((ingredient) => {
-              return <li>{ingredient}</li>;
-            })}
-          </ul>
-          <p>{meal.instructions}</p>
+
+          <span>
+            <h2>Ingredients</h2>
+            <ul>
+              {meal.ingredients.map((ingredient) => {
+                return <li>{ingredient}</li>;
+              })}
+            </ul>
+          </span>
+          {parse(mealInstructionsHtml)}
         </div>
       );
     } else {
