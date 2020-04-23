@@ -1,0 +1,16 @@
+.uhoh{
+    height: 3500px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.days{
+    padding-top: 2000px; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.hideme{
+    display: none; 
+}
