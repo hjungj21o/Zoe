@@ -96,3 +96,10 @@
   cursor: pointer;
   color: #333;
 }
+
+.logo{
+  height:32px;
+  padding: 0px;
+  margin: 0px;
+  /* background-color: seagreen; */
+}

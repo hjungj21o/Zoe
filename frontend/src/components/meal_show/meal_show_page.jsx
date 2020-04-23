@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 class MealShowPage extends React.Component {
   constructor(props) {
@@ -16,26 +17,55 @@ class MealShowPage extends React.Component {
   }
 
   render() {
-    debugger;
     const { meal } = this.props;
+    
     let mealInfo;
     if (meal) {
+
+      const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
+      let mealSummary=meal.summary;
+
+      // debugger;
+      mealSummary = mealSummary.slice(
+        0,
+        mealSummary.indexOf("All things considered")
+      );
+       mealSummary = mealSummary.slice(
+         0,
+         mealSummary.indexOf("Taking all factors into account")
+       );
+      
       mealInfo = (
-        <div>
-          <h1>{meal.title}</h1>
-          <img src={meal.image} />
-          <ul>
-            {meal.ingredients.map((ingredient) => {
-              return <li>{ingredient}</li>;
-            })}
-          </ul>
-          <p>{meal.instructions}</p>
+        <div className="main-container2">
+          <div className="main-text-container">
+            <h1>{meal.title}</h1>
+
+            <div className="meal-summary">
+              {parse(mealSummary)}
+              {/* {meal.summary} */}
+            </div>
+
+            <div class="meal-details">
+              <img className="big-image" src={meal.image} />
+
+              <div className="meals-instructions">
+                <h2>Ingredients</h2>
+                <ul>
+                  {meal.ingredients.map((ingredient) => {
+                    return <li>{ingredient}</li>;
+                  })}
+                </ul>
+                <br></br>
+                {parse(mealInstructionsHtml)}
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
       mealInfo = "";
     }
-    return <div>{mealInfo};</div>;
+    return <div>{mealInfo}</div>;
   }
 }
 
