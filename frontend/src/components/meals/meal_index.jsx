@@ -16,6 +16,7 @@ class MealIndex extends React.Component{
         let monday = new Date(today);
         monday.setDate(monday.getDate() - offset);
         this.week.push(monday);
+       
 
         let tuesday = new Date(monday);
         tuesday.setDate(tuesday.getDate() + 1);
@@ -46,7 +47,7 @@ class MealIndex extends React.Component{
     render(){
         
         let day_meal_cards = this.week.map(day => {
-            //debugger
+ 
             return <DaysMealsCard day={day} fetchUserMeals={this.props.fetchUserMeals} meals={this.props.userMeals} 
             currentUserId={this.props.currentUserId} receiveSelectedDay={this.props.receiveSelectedDay}
             selectedDay={this.props.selectedDay}/> 
@@ -54,7 +55,9 @@ class MealIndex extends React.Component{
         
         return(
             <div className="days">
-                {day_meal_cards}
+                <div className="day-meal-container">
+                    {day_meal_cards}
+                </div>
             </div> 
         )
     }

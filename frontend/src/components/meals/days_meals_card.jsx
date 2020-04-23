@@ -16,8 +16,7 @@ class DaysMealsCard extends React.Component {
 
         this.dateString = yr + '-' + month + '-' + day; 
         this.handleClick=this.handleClick.bind(this); 
-
-        this.state= {display: "dontshow"}
+        this.fullDateString = current_date_arr.slice(0, 2).join(" ") + ", " + current_date_arr.slice(2);
 
        
     }
@@ -35,16 +34,27 @@ class DaysMealsCard extends React.Component {
     }
 
     render(){
-        //debugger
-        let test = this.props.meals.length != 0 ? this.props.meals[0].title : "";
-        let display = this.props.day === this.props.selectedDay ? "showme" : "hideme"
+
+        let test = this.props.meals.length != 0 ? this.props.meals.map((meal, index) => {
+            return (
+                <MealIndexItem key={index} meal={meal}/>
+            )
+        })
+        : "";
+
+        let display = this.props.day === this.props.selectedDay ? "showme" : "hideme";
+
+        
         return(
             <>
-                <div onClick={this.handleClick}>
-                    {this.props.day.toString().split(" ")[0]}
-                   <div className={display}>
-                    {test}
-                    </div>
+                <div onClick={this.handleClick} className="day-label">
+                    <p>{this.props.day.toString().split(" ")[0]}</p>
+                </div>
+                <div className={`day-item ${display}`}>
+                    <h1>{this.fullDateString}</h1>
+                    <ul>
+                        {test} {/* <MealIndexItem /> */}
+                    </ul>
                 </div>
             </>
         )

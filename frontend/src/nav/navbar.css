@@ -54,12 +54,23 @@
 }
 
 .top-bar.other {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 50px;
+  position: initial;
+  background-color: #004c7f;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  display: table;
 }
 
 .top-bar.inactive {
   display: none;
+}
+
+.profile-logout {
+  padding-right: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
 }
 
 .login-modal {

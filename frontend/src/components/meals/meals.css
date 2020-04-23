@@ -1,16 +1,68 @@
-.uhoh{
-    height: 3500px;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.days{
-    padding-top: 2000px; 
-    display: flex; 
-    flex-direction: column;
-}
-
 .hideme{
     display: none; 
 }
+
+.day-meal-container {
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.day-meal-container h1 {
+    font-size: 25px;
+    color: #333;
+}
+
+.day-meal-container p {
+    color: #333;
+}
+
+.days {
+    box-shadow: 0 3px 3px -2px rgba(0,0,0,.2);
+    padding: 20px 0;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.day-label {
+    cursor: pointer;
+    margin-right: 10%;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.day-item {
+    position: absolute;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.day-item ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.day-item img {
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px -2px rgba(0,0,0,.2);
+}
+
+.day-item li {
+    margin-bottom: 20px;
+}
+
+.meal-preview {
+    display: flex;
+    width: 500px;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+.meal-preview-text {
+    padding: 20px;
+}
+
