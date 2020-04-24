@@ -85,12 +85,12 @@ class NavBar extends React.Component {
                 <i className="fas fa-times"></i>
               </p>
             </div>
-            <LoginFormContainer closeModal={this.closeModal} />
+            <LoginFormContainer closeModal={this.closeModal}/>
           </div>
         </div>
         <div className={topNav}>
           <Link to={"/"}>
-            <img src={require("./zoeLogo2.png")} className="logo" />
+            <h1>zoe</h1>
           </Link>
           {this.getLinks()}
         </div>

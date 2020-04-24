@@ -40,7 +40,7 @@ class MealIndexItem extends React.Component{
                         <hr />
                         <nav className="meal-preview-text-desc">
                             <p><i class="far fa-clock"></i> {this.props.meal.readyInMinutes} minutes</p>
-                            <p><i class="fas fa-user-friends"></i> {this.props.meal.servings} servings</p>
+                            <p><i class="far fa-user"></i> {this.props.meal.servings} servings</p>
                         </nav>
                         <nav className="meal-preview-btn">
                             <Link to={url}>
