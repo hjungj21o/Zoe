@@ -25,7 +25,7 @@ export default function (state = initialState, action) {
      
       return {
         isAuthenticated: false,
-        user: undefined,
+        user: {},
       };
 
 
