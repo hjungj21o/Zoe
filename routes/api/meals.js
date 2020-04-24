@@ -14,49 +14,53 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
       if (meals.length > 0) {
         return res.json(meals);
       } else {
-        const user = User.findById(req.params.user_id);
-        axios({
-          method: "GET",
-          url:
-            "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate",
-          headers: {
-            "content-type": "application/octet-stream",
-            "x-rapidapi-host":
-              "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key": process.env.API_KEY,
-          },
-          params: {
-            targetCalories: user.targetCalories,
-            timeFrame: "day",
-            diet: user.diet,
-            // exclude: user.exclusions.join("%2C "),
-          },
-        })
-          .then((response) => {
-            data = response;
-            let meals = data.data.meals;
-            const resMeals = [];
-            meals.forEach((meal) => {
-              let new_meal = new Meal({
-                spoonacularMealId: meal.id,
-                title: meal.title,
-                image: `https://spoonacular.com/recipeImages/${meal.id}-312x231`,
-                readyInMinutes: meal.readyInMinutes,
-                servings: meal.servings,
-                mealDate: req.params.meal_date,
-                userId: req.params.user_id,
-              });
-              resMeals.push(new_meal);
-              new_meal.save();
-            });
-            return res.json(resMeals);
+        const user = User.findById(req.params.user_id).then((user) => {
+          
+          axios({
+            method: "GET",
+            url:
+              "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate",
+            headers: {
+              "content-type": "application/octet-stream",
+              "x-rapidapi-host":
+                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+              "x-rapidapi-key": process.env.API_KEY,
+            },
+            params: {
+              targetCalories: user.targetCalories,
+              timeFrame: "day",
+              diet: user.diet,
+              exclude: user.exclusions.join("%2C "),
+            },
           })
-          .catch((error) => {
-            console.log(error);
-          });
+            .then((response) => {
+              data = response;
+              let meals = data.data.meals;
+              const resMeals = [];
+              meals.forEach((meal) => {
+                let new_meal = new Meal({
+                  spoonacularMealId: meal.id,
+                  title: meal.title,
+                  image: `https://spoonacular.com/recipeImages/${meal.id}-312x231`,
+                  readyInMinutes: meal.readyInMinutes,
+                  servings: meal.servings,
+                  mealDate: req.params.meal_date,
+                  userId: req.params.user_id,
+                });
+                resMeals.push(new_meal);
+                new_meal.save();
+              });
+              return res.json(resMeals);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }); 
+        
       }
-    })
-    .catch(() => {});
+      })
+      .catch(() => {});
+  
 });
 
 router.get("/:meal_id", (req, res) => {

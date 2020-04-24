@@ -80,7 +80,7 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
-              console.log(user);
+              //console.log(user);
               const payload = { id: user.id, email: user.email };
               axios({
                 method: "GET",
@@ -100,11 +100,13 @@ router.post("/register", (req, res) => {
                 },
               })
                 .then((response) => {
+                  let counter = 0; 
                   data = response;
                   console.log(data);
                   let meals = data.data.meals;
                   console.log(meals);
                   meals.forEach((meal) => {
+                    if (counter < 3){
                     let date = new Date();
                     let new_meal = new Meal({
                       spoonacularMealId: meal.id,
@@ -118,22 +120,26 @@ router.post("/register", (req, res) => {
                       userId: user.id,
                     });
                     new_meal.save();
+
+                    counter += 1; 
+                  }
                   });
+                  jwt.sign(
+                    payload,
+                    keys.secretOrKey,
+                    { expiresIn: 3600 },
+                    (err, token) => {
+                      res.json({
+                        success: true,
+                        token: "Bearer" + token,
+                      });
+                    }
+                  );
                 })
                 .catch((error) => {
                   console.log(error);
                 });
-              jwt.sign(
-                payload,
-                keys.secretOrKey,
-                { expiresIn: 3600 },
-                (err, token) => {
-                  res.json({
-                    success: true,
-                    token: "Bearer" + token,
-                  });
-                }
-              );
+              
             })
             .catch((err) => console.log(err));
         });
