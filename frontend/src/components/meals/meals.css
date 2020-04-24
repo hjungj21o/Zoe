@@ -1,41 +1,44 @@
-.hideme{
-    display: none; 
+.hideme {
+  display: none;
 }
 
 .day-meal-container {
-    display: flex;
-    width: 40%;
-    text-align: center;
-    margin: 0 auto;
+  display: flex;
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .day-meal-container h1 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 30px;
-    margin-left: 15px;
+  font-size: 26px;
+  color: #333;
 }
 
 .day-meal-container p {
-    color: #333;
+  color: #333;
 }
 
 .days {
-    box-shadow: 0 3px 3px -2px rgba(0,0,0,.1);
-    padding: 20px 0;
-    width: 100%;
-    background-color: #fff;
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  width: 100%;
+  background-color: #fff;
 }
 
 .day-label {
-    cursor: pointer;
-    margin-right: 5%;
-    margin-left: 5%;
-    font-size: 13px;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: #333;
-    align-self: center;
+  cursor: pointer;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #333;
+  align-self: center;
+}
+
+.day-label p:hover {
+  /* color: #679436; */
+  font-weight: 500;
 }
 
 /* .day-label-bottom {
@@ -47,121 +50,188 @@
 } */
 
 .day-item {
-    position: absolute;
-    width: 100%;
-    margin-top: 60px;
-    left: 0%;
+  position: absolute;
+  width: 100%;
+  margin-top: 60px;
+  left: 0%;
 }
 
 .day-item ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    /* display: flex; */
-    /* position: absolute; */
-    /* margin-left: -20%; */
+  /* margin: 0; */
+  padding: 0;
+  list-style: none;
+  /* display: flex; */
+  /* position: absolute; */
+  /* margin-left: -20%; */
 }
 
 .days-meals {
-    display: flex;
+  display: flex;
 }
 
 .days-meals ul {
-    display: flex;
-    margin: 0 auto;
+  display: flex;
+  margin: 0 auto;
 }
 
 .day-item img {
-    margin-top: -35px;
-    width: 100%;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    /* filter: grayscale(30%); */
-    /* filter: brightness(80%); */
-    /* filter: contrast(80%); */
+  margin-top: -35px;
+  width: 100%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  /* transition: all 0.5s ease-in-out; */
+  /* filter: grayscale(30%); */
+  /* filter: brightness(80%); */
+  /* filter: contrast(80%); */
 }
 
+.day-item img:hover {
+  opacity: 0.8;
+  /* position: absolute; */
+  /* height: 230px; */
+  /* margin-top: -37px; */
+  transition: all 0.2s ease-in;
+}
 /* .day-item img:hover {
     filter: grayscale(0%);
 } */
 
 .day-item li {
-    margin: 0 15px;
-    text-align: center;
+  margin: 0 15px;
+  text-align: center;
 }
 
 .meal-preview {
-    /* display: flex; */
-    width: 320px;
-    min-height: 300px;
-    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
-    border-radius: 2px;
-    background-color: #fff;
+  /* display: flex; */
+  width: 320px;
+  height: 480px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background-color: #fff;
 }
 
 .meal-preview-text {
-    padding: 20px;
-    text-align: left;
+  padding: 20px;
+  text-align: left;
+}
+
+.meal-preview-text hr {
+  margin: 10px 0;
 }
 
 .meal-preview-day {
-    font-size: 13px;
-    background-color: #fff;
-    display: inline-block;
-    position: relative;
-    top: -15px;
-    padding: 10px;
-    width: 180px;
-    border-radius: 30px;
-    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
-    text-transform: uppercase;
-    z-index: 3;
+  font-size: 13px;
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 10px;
+  width: 180px;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  z-index: 3;
+  font-weight: 500;
 }
 
 .meal-preview-text-title {
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: center;
+  font-size: 16px;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
 }
 
 .meal-preview-text-desc {
-    text-align: center;
+  text-align: center;
 }
 
 .meal-preview-text-desc p {
-    font-size: 13px;
-    text-transform: capitalize;
-    margin-bottom: 3px;
+  font-size: 13px;
+  text-transform: capitalize;
+  margin-bottom: 3px;
 }
 
 .meal-preview-text-desc i {
-    padding-bottom: 2px;
-    width: 20px;
-    text-align: center;
+  padding-bottom: 2px;
+  width: 20px;
+  text-align: center;
 }
 
 .meal-preview-btn {
-    width: 100%;
-    text-align: center;
-    margin-top: 22px;
-    margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+  margin-top: 22px;
+  margin-bottom: 5px;
 }
 
 .meal-preview-btn button {
-    background-color: #fa7921;
-    border: none;
-    border-radius: 3px;
-    width: 200px;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    /* margin-top: 15px; */
-    padding: 12px;
-    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
-    font-size: 12px;
-    text-transform: uppercase;
+  background-color: #fa7921;
+  border: none;
+  border-radius: 3px;
+  width: 200px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  /* margin-top: 15px; */
+  padding: 12px;
+  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .meal-preview-btn button:hover {
-    background-color: #f26531;
+  background-color: #f26531;
+}
+
+.fav-recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(255, 95, 95); */
+  background-color: #ff7878;
+  background-image: linear-gradient(315deg, #ff7878 0%, #ff0000 74%);
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.1);
+}
+
+i.fa-heart {
+  font-size: 22px;
+  color: #fff;
+}
+
+.fav-recipe:hover i {
+  font-size: 25px;
+  transition: all 0.1s ease-in;
+}
+
+.date-container {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.date-container h1 {
+  display: flex;
+}
+
+.day-header {
+  margin-left: 15px;
+  display: block;
+  font-size: 32px;
+}
+
+.day-header p {
+  display: flex;
+  font-size: 16px;
+  margin-bottom: 50px;
+  margin-top: -10px;
 }

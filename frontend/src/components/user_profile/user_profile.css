@@ -1,0 +1,131 @@
+.profile-container {
+  width: 65%;
+  margin: 30px auto;
+}
+
+.profile-container p {
+  color: #666;
+}
+
+.profile-img img {
+  /* background: url("https://pacebook-seed.s3.amazonaws.com/image/no_image.jpeg");
+  background-size: 100%; */
+  border-radius: 50%;
+  width: 120px;
+}
+
+.profile-img {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 2px 18px -2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-information {
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 2px 18px -2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  display: flex;
+  padding: 25px;
+}
+
+.profile-information ul li {
+  list-style: none;
+}
+
+.profile-img-desc {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.profile-img-desc button {
+  background-color: #fa7921;
+  border: none;
+  border-radius: 3px;
+  width: 130px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  /* margin-top: 15px; */
+  padding: 10px;
+  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.profile-img-desc button:hover {
+  background-color: #f26531;
+}
+
+button.add-btn {
+  background-color: transparent;
+  color: #fa7921;
+  border: 1px solid #fa7921;
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+button.add-btn:hover {
+  background-color: #fa7921;
+  color: #fff;
+}
+
+.profile-information button {
+  background-color: #a5be00;
+  border: none;
+  border-radius: 3px;
+  width: 130px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  /* margin-top: 15px; */
+  padding: 10px;
+  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); */
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.profile-information button:hover {
+  background-color: #679436;
+}
+
+.profile-edit-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.profile-header {
+  width: 100%;
+  border-bottom: 1px solid #f4f5f6;
+  padding: 15px 25px;
+  /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); */
+  box-sizing: border-box;
+}
+
+.profile-full-info {
+  padding: 25px 50px;
+  font-size: 15px;
+}
+
+.profile-full-info ul {
+  padding: 0;
+}
+
+.user-info {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  /* justify-content: space-between; */
+}
+
+.user-info-title {
+  width: 50%;
+  font-weight: 500;
+}
