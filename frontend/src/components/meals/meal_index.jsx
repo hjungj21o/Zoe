@@ -6,7 +6,6 @@ class MealIndex extends React.Component{
     constructor(props){
         super(props)
 
-        debugger
         this.week = []; 
         let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]; 
 
