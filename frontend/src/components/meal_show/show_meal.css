@@ -21,6 +21,21 @@
     font-size: 16px;
     line-height: 24px;
 }
+.image-container{
+    margin: 0 auto;
+}
+@media only screen and (max-width: 556px) {
+  /* For mobile phones: */
+  .big-image{
+    width: 100%;
+    margin: 0 auto;
+  }
+   .meals-instructions{
+    width:100%;
+    margin: 0 auto;
+  }
+  
+}
 
 .big-image{
     /* background-color: yellow; */
@@ -28,25 +43,46 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 30px;
     margin-bottom: 50px;
+
     max-width: 556px;
-    min-width: 50%;
-    max-height: 370px;
-    min-height: 50%;
+    /* max-height: 333px; */
+    
+    /* min-width: 278px; */
+    /* min-height: 185px; */
+
+   
 }
 
 .meal-details{
     /* background-color: brown; */
-    display: flex;
-    flex-direction:row-reverse;
+    /* display: flex;
+    flex-direction:row-reverse; */
+    /* flex-wrap:wrap; */
+    
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 24px;
+
+  display: flex;
+  /* flex-direction:row-reverse;  */
+  /* float:left; */
+  flex-wrap: wrap-reverse ;
+  justify-content: space-between;
+  /* -webkit-flex-wrap: wrap; */
+  /* flex-wrap: wrap  ; */
 }
 .meals-instructions{
     /* background-color:green; */
-    width:70%;
+    
     padding-right: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 24px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    width:40%;
+}
+.instructions-only .ingredients-only{
+    display: flex;
 }
