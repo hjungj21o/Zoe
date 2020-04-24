@@ -31,7 +31,6 @@ class DaysMealsCard extends React.Component {
       current_date_arr.slice(0, 2).join(" ") + ", " + current_date_arr.slice(2);
   }
 
-
   handleClick(e) {
     e.preventDefault();
 
@@ -56,41 +55,44 @@ class DaysMealsCard extends React.Component {
     }
   }
 
-    render(){
-
-        let days_meals = this.props.meals.length != 0 ? this.props.meals.map((meal, index) => {
-            return (
-                <MealIndexItem key={index} meal={meal} index={index} />
-            )
-        })
+  render() {
+    let days_meals =
+      this.props.meals.length !== 0
+        ? this.props.meals.map((meal, index) => {
+            return <MealIndexItem key={index} meal={meal} index={index} />;
+          })
         : "";
 
-        let display = (this.props.day.getUTCMonth() === this.props.selectedDay.getUTCMonth() && 
-            this.props.day.getUTCDate() === this.props.selectedDay.getUTCDate() &&
-            this.props.day.getUTCFullYear() === this.props.selectedDay.getUTCFullYear()
-        ) ? "showme" : "hideme";
+    let display =
+      this.props.day.getUTCMonth() === this.props.selectedDay.getUTCMonth() &&
+      this.props.day.getUTCDate() === this.props.selectedDay.getUTCDate() &&
+      this.props.day.getUTCFullYear() ===
+        this.props.selectedDay.getUTCFullYear()
+        ? "showme"
+        : "hideme";
 
-
-        
-        return(
-            <>
-                <div onClick={this.handleClick} onMouseOver={this.activeLine} onMouseOut={this.deactiveLine} className="day-label">
-                    <p>{this.props.day.toString().split(" ")[0]}</p>
-                    {/* <nav className={this.state.line}></nav> */}
-                </div>
-                <div className={`day-item ${display}`}>
-                    <ul>
-                        <h1>{this.fullDateString}</h1>
-                        <nav className="days-meals">
-                            <ul>
-                                {days_meals}
-                            </ul>
-                        </nav>
-                    </ul>
-                </div>
-            </>
-        )
-    }
+    return (
+      <>
+        <div
+          onClick={this.handleClick}
+          onMouseOver={this.activeLine}
+          onMouseOut={this.deactiveLine}
+          className="day-label"
+        >
+          <p>{this.props.day.toString().split(" ")[0]}</p>
+          {/* <nav className={this.state.line}></nav> */}
+        </div>
+        <div className={`day-item ${display}`}>
+          <ul>
+            <h1>{this.fullDateString}</h1>
+            <nav className="days-meals">
+              <ul>{days_meals}</ul>
+            </nav>
+          </ul>
+        </div>
+      </>
+    );
+  }
 }
 
 export default DaysMealsCard;
