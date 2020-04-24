@@ -7,6 +7,7 @@ import MealShowPage from "./meal_show_page";
 const msp = (state) => {
   return {
     meal: state.meals ? Object.values(state.meals)[0] : {},
+    meals: state.meals 
   };
 };
 

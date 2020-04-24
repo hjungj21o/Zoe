@@ -6,7 +6,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="main-container">
-        <div className="main-text-container">
+        <div className="home-text-container">
           <h1>Healthy Eating Habits Made Incredibly Simple.</h1>
           <h3>
             EatLove provides personalized meal recommendations and coaching to

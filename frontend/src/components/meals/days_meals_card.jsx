@@ -18,7 +18,9 @@ class DaysMealsCard extends React.Component {
         this.handleClick=this.handleClick.bind(this); 
         this.fullDateString = current_date_arr.slice(0, 2).join(" ") + ", " + current_date_arr.slice(2);
 
-       
+    //    this.state = { line: "" };
+    //    this.activeLine = this.activeLine.bind(this);
+    //    this.deactiveLine = this.deactiveLine.bind(this);
     }
 
     handleClick(e){
@@ -29,8 +31,6 @@ class DaysMealsCard extends React.Component {
         
         this.props.fetchUserMeals(data); 
         this.props.receiveSelectedDay(this.props.day)
-       
-        
     }
 
     componentDidMount() {
@@ -41,12 +41,24 @@ class DaysMealsCard extends React.Component {
         if (this.props.day.getUTCMonth() === today.getUTCMonth() &&
             this.props.day.getUTCDate() === today.getUTCDate() &&
             this.props.day.getUTCFullYear() === today.getUTCFullYear()){
-                this.props.fetchUserMeals(data)
+                this.props.fetchUserMeals(data);
+                // this.setState({ line: "day-label-bottom" });
             }
     }
 
+    // activeLine() {
+    //     this.setState({ line: "day-label-bottom" });
+    // }
+
+    // deactiveLine() {
+
+    //         this.setState({ line: "" });
+    
+    // }
+
+
     render(){
-        debugger
+
         let days_meals = this.props.meals.length != 0 ? this.props.meals.map((meal, index) => {
             return (
                 <MealIndexItem key={index} meal={meal} index={index} />
@@ -58,20 +70,22 @@ class DaysMealsCard extends React.Component {
             this.props.day.getUTCDate() === this.props.selectedDay.getUTCDate() &&
             this.props.day.getUTCFullYear() === this.props.selectedDay.getUTCFullYear()
         ) ? "showme" : "hideme";
-        
 
-        debugger
+
         
         return(
             <>
-                <div onClick={this.handleClick} className="day-label">
+                <div onClick={this.handleClick} onMouseOver={this.activeLine} onMouseOut={this.deactiveLine} className="day-label">
                     <p>{this.props.day.toString().split(" ")[0]}</p>
+                    {/* <nav className={this.state.line}></nav> */}
                 </div>
                 <div className={`day-item ${display}`}>
                     <ul>
                         <h1>{this.fullDateString}</h1>
                         <nav className="days-meals">
-                            {days_meals}
+                            <ul>
+                                {days_meals}
+                            </ul>
                         </nav>
                     </ul>
                 </div>

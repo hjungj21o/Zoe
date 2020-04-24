@@ -5,10 +5,9 @@ let today = new Date();
 
 const DayReducer = (state = today, action) => {
     Object.freeze(state);
-    debugger
+
     switch (action.type) {
         case RECEIVE_SELECTED_DAY:
-            debugger
             
             return action.day;
         default:

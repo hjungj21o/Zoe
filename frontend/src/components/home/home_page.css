@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #fafafa;
+    background-color: #F4F5F6;
 }
 
 h1 {
@@ -47,23 +47,23 @@ input, button {
     box-sizing: border-box;
 }
 
-.main-text-container {
+.home-text-container {
     padding-top: 22vh;
     width: 600px;
 }
 
-.main-text-container h1 {
+.home-text-container h1 {
     line-height: 50px;
     font-size: 38px;
 }
 
-.main-text-container h3 {
+.home-text-container h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     line-height: 28px;
 }
 
-.main-text-container button {
+.home-text-container button {
     background-color: #004c7f;
     border: none;
     border-radius: 30px;
@@ -75,12 +75,12 @@ input, button {
     margin-top: 15px;
 }
 
-.main-text-container button:hover {
+.home-text-container button:hover {
     background-color: #0075c4;
     color: #fff;
 }
 
-.main-text-container button p {
+.home-text-container button p {
     padding: 12px;
     margin: 0;
 }
