@@ -85,9 +85,10 @@ p.signup-exclusion-title {
   padding-right: 10px;
 }
 
-.signup-exclusion ul li p {
+.signup-exclusion ul li {
   margin: 0;
   line-height: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
 .signup-exclusions li input {

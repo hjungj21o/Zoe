@@ -118,7 +118,7 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
-  // Once the user has been authenticated, redirect to the Tweets page
+  // Once the user has been authenticated, redirect to the meals page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push("/meals");
@@ -191,15 +191,7 @@ class LoginForm extends React.Component {
                 placeholder="Enter Password"
               />
             </label>
-            {/* <div className="login-submit-button"> */}
             <button onClick={this.handleSubmit}>Login</button>
-            {/* </div> */}
-            {/* <div className="signup-question">
-                <p>Not a member yet?&nbsp;</p>
-                <Link className="signup-link" to="/signup">
-                  <p>Sign up</p>
-                </Link>
-              </div> */}
           </div>
         </form>
       </div>

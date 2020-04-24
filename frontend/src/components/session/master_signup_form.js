@@ -25,18 +25,6 @@ class MasterSignUpForm extends React.Component {
       male: "",
       female: "",
       errors: {},
-      one: false,
-      two: false,
-      three: false,
-      four: false,
-      five: false,
-      six: false,
-      seven: false,
-      eight: false,
-      nine: false,
-      ten: false,
-      eleven: false,
-      twelve: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,21 +35,9 @@ class MasterSignUpForm extends React.Component {
     this._prev = this._prev.bind(this);
     this.previousButton = this.previousButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
+    this.checkedOrNah = this.checkedOrNah.bind(this);
 
-    // this.checkboxes = {
-    //   one: "false",
-    //   two: "false",
-    //   three: "false",
-    //   four: "false",
-    //   five: "false",
-    //   six: "false",
-    //   seven: "false",
-    //   eight: "false",
-    //   nine: "false",
-    //   ten: "false",
-    //   eleven: "false",
-    //   twelve: "false"
-    // }
+   
   
   }
 
@@ -75,31 +51,28 @@ class MasterSignUpForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
-      // debugger;
     };
   }
 
-  updateCheckBox(e) {
-    debugger;
-    let id = e.currentTarget.value
-
-    if (this.state[id] === true){
-      debugger
-      this.setState({[id]: false})
-    }else{
-      debugger
-      this.setState({[id]: true })
-    }
-    debugger
-
+  updateCheckBox(val) {
     let exclusionValues = this.state.exclusions;
-    return (e) => {
-      exclusionValues.push(e.currentTarget.name);
+    return () => {
+      if (exclusionValues.includes(val)) {
+        const targetIdx = exclusionValues.indexOf(val);
+        exclusionValues.splice(targetIdx, 1);
+      } else {
+        exclusionValues.push(val);
+      }
+      this.setState(this.state)
     }
+
+  }
+
+  checkedOrNah(val) {
+    return this.state.exclusions.includes(val) ? true : false;
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     let user = {
       email: this.state.email,
@@ -117,7 +90,7 @@ class MasterSignUpForm extends React.Component {
       errors: {},
     };
 
-    // debugger;
+    this.props.clearErrors();
 
     return this.props.signup(user, this.state.currentStep).then(() => {
       if (Object.values(this.props.errors).length === 0) {
@@ -282,6 +255,7 @@ class MasterSignUpForm extends React.Component {
                 update={this.update}
                 updateCheckBox={this.updateCheckBox}
                 diet={this.state.diet}
+                checkedOrNah={this.checkedOrNah}
                 exclusions={this.state.exclusions}
                 targetWeight={this.state.targetWeight}
                 checkboxes={this.state}

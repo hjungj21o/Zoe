@@ -40,105 +40,140 @@ class Step2 extends React.Component {
               <p className="signup-exclusion-title">Avoids</p>
               <ul>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Dairy Free"
-                    //checked={this.props.checkboxes.one}
-                    onChange={this.props.updateCheckBox}
-                  />
-                  <p>Dairy</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="dairy"
+                      checked={this.props.checkedOrNah("dairy")}
+                      onChange={this.props.updateCheckBox("dairy")}
+                    />
+                    Dairy
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Egg Free"
-                    onChange={this.props.updateCheckBox}
-                  />
-                  <p>Eggs</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="egg"
+                      checked={this.props.checkedOrNah("egg")}
+                      onChange={this.props.updateCheckBox("egg")}
+                    />
+                    Eggs
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Gluten Free"
-                    onChange={this.props.updateCheckBox}
-                  />
-                  <p>Gluten</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="Gluten Free"
+                      checked={this.props.checkedOrNah("Gluten Free")}
+                      onChange={this.props.updateCheckBox("Gluten Free")}
+                    />
+                    Gluten
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Grain Free"
-                    onChange={this.props.updateCheckBox}
-                  />
-                  <p>Grains</p>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="Peanut Free"
-                    onChange={this.props.updateCheckBox}
-                  />
-                  <p>Peanuts</p>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="Seafood Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Seafood</p>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="Sesame Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Sesame</p>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    name="Shellfish Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Shellfish</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="grain"
+                      checked={this.props.checkedOrNah("grain")}
+                      onChange={this.props.updateCheckBox("grain")}
+                    />
+                    Grains
+                  </label>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Soy Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Soy</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="peanut"
+                      checked={this.props.checkedOrNah("peanut")}
+                      onChange={this.props.updateCheckBox("peanut")}
+                    />
+                    Peanuts
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Sulfite Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Sulfite</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="seafood"
+                      checked={this.props.checkedOrNah("seafood")}
+                      onChange={this.props.updateCheckBox("seafood")}
+                    />
+                    Seafood
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Tree Nut Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Tree Nuts</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="sesame"
+                      checked={this.props.checkedOrNah("sesame")}
+                      onChange={this.props.updateCheckBox("sesame")}
+                    />
+                    Sesame
+                  </label>
                 </li>
                 <li>
-                  <input
-                    type="checkbox"
-                    name="Wheat Free"
-                    onClick={this.props.updateCheckBox}
-                  />
-                  <p>Wheat</p>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="shellfish"
+                      checked={this.props.checkedOrNah("shellfish")}
+                      onChange={this.props.updateCheckBox("shellfish")}
+                    />
+                    Shellfish
+                  </label>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="soy"
+                      checked={this.props.checkedOrNah("soy")}
+                      onChange={this.props.updateCheckBox("soy")}
+                    />
+                    Soy
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="sulfite"
+                      checked={this.props.checkedOrNah("sulfite")}
+                      onChange={this.props.updateCheckBox("sulfite")}
+                    />
+                    Sulfite
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="tree nut"
+                      checked={this.props.checkedOrNah("tree nut")}
+                      onChange={this.props.updateCheckBox("tree nut")}
+                    />
+                    Tree Nuts
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="wheat"
+                      checked={this.props.checkedOrNah("wheat")}
+                      onChange={this.props.updateCheckBox("wheat")}
+                    />
+                    Wheat
+                  </label>
                 </li>
               </ul>
             </div>
