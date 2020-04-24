@@ -46,7 +46,7 @@ export const signup = (user, currentStep) => (dispatch) => {
   );
 }
 
-export const login = (user) => (dispatch) => {
+export const login = (user) => (dispatch) => (
   APIUtil.login(user)
     .then((res) => {
       const { token } = res.data;
@@ -58,7 +58,7 @@ export const login = (user) => (dispatch) => {
     .catch((err) => {
       dispatch(receiveErrors(err.response.data));
     })
-}
+)
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
