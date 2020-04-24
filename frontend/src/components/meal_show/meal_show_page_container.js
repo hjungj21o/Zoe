@@ -3,10 +3,9 @@ import { fetchMeal } from "../../actions/meal_actions";
 import "./show_meal.css";
 import MealShowPage from "./meal_show_page";
 
-
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return {
-    meal: state.meals ? Object.values(state.meals)[0] : {},
+    meal: state.meal_info ? state.meal_info : null,
   };
 };
 

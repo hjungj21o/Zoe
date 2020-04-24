@@ -34,9 +34,7 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
         })
           .then((response) => {
             data = response;
-            console.log(data);
             let meals = data.data.meals;
-            console.log(meals);
             const resMeals = [];
             meals.forEach((meal) => {
               let new_meal = new Meal({
@@ -79,7 +77,6 @@ router.get("/:meal_id", (req, res) => {
       resIngredients.forEach((ingredient) => {
         ingredients.push(ingredient.original);
       });
-      console.log(response);
       meal = {
         mealId: data.id,
         title: data.title,
