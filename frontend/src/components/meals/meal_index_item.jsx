@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 class MealIndexItem extends React.Component{
-    constructor(props){
-        super(props)
-    }
 
     render() {
         

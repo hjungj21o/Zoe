@@ -2,10 +2,6 @@ import React from "react";
 import parse from "html-react-parser";
 
 class MealShowPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchMeal(this.props.match.params.meal_id);
   }

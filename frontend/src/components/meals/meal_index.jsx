@@ -4,7 +4,7 @@ import './meals.css'
 
 class MealIndex extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
 
         this.week = []; 
         let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]; 

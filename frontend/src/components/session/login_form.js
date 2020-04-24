@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./login_form.css";
 
 class LoginForm extends React.Component {
@@ -92,15 +92,7 @@ class LoginForm extends React.Component {
                 placeholder="Enter Password"
               />
             </label>
-            {/* <div className="login-submit-button"> */}
             <button onClick={this.handleSubmit}>Login</button>
-            {/* </div> */}
-            {/* <div className="signup-question">
-                <p>Not a member yet?&nbsp;</p>
-                <Link className="signup-link" to="/signup">
-                  <p>Sign up</p>
-                </Link>
-              </div> */}
           </div>
         </form>
       </div>

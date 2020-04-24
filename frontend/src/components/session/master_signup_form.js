@@ -3,7 +3,6 @@ import Step1 from "./step1_signup_form";
 import Step2 from "./step3_signup_form";
 import Step3 from "./step2_signup_form";
 import "./signup.css";
-import { Link } from "react-router-dom";
 
 class MasterSignUpForm extends React.Component {
   constructor(props) {
