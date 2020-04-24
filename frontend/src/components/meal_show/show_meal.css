@@ -1,0 +1,88 @@
+.container2{
+    /* background-color: olive;
+    border-style: double; */
+    width: 98%;
+  
+}
+
+.main-text-container {
+    /* background-color: red; */
+    padding: 10px;
+    padding-top: 22vh;
+    width: 96%;
+    margin: 0 auto;
+}
+
+.meal-summary{
+    width: 100%;
+    /* background-color: aquamarine; */
+     padding-bottom: 22px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+.image-container{
+    margin: 0 auto;
+}
+@media only screen and (max-width: 556px) {
+  /* For mobile phones: */
+  .big-image{
+    width: 100%;
+    margin: 0 auto;
+  }
+   .meals-instructions{
+    width:100%;
+    margin: 0 auto;
+  }
+  
+}
+
+.big-image{
+    /* background-color: yellow; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    max-width: 556px;
+    /* max-height: 333px; */
+    
+    /* min-width: 278px; */
+    /* min-height: 185px; */
+
+   
+}
+
+.meal-details{
+    /* background-color: brown; */
+    /* display: flex;
+    flex-direction:row-reverse; */
+    /* flex-wrap:wrap; */
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+
+  display: flex;
+  /* flex-direction:row-reverse;  */
+  /* float:left; */
+  flex-wrap: wrap-reverse ;
+  justify-content: space-between;
+  /* -webkit-flex-wrap: wrap; */
+  /* flex-wrap: wrap  ; */
+}
+.meals-instructions{
+    /* background-color:green; */
+    
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    width:40%;
+}
+.instructions-only .ingredients-only{
+    display: flex;
+}

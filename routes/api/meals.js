@@ -28,13 +28,13 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
           params: {
             targetCalories: user.targetCalories,
             timeFrame: "day",
+            diet: user.diet,
+            exclude: user.exclusions.join("%2C "),
           },
         })
           .then((response) => {
             data = response;
-            console.log(data);
             let meals = data.data.meals;
-            console.log(meals);
             const resMeals = [];
             meals.forEach((meal) => {
               let new_meal = new Meal({
@@ -57,6 +57,43 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
       }
     })
     .catch(() => {});
+});
+
+router.get("/:meal_id", (req, res) => {
+  axios({
+    method: "GET",
+    url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${req.params.meal_id}/information`,
+    headers: {
+      "content-type": "application/octet-stream",
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": process.env.API_KEY,
+    },
+  })
+    .then((response) => {
+      let meal = {};
+      let data = response.data;
+      let ingredients = [];
+      let resIngredients = data.extendedIngredients;
+      resIngredients.forEach((ingredient) => {
+        ingredients.push(ingredient.original);
+      });
+      meal = {
+        mealId: data.id,
+        title: data.title,
+        preparationMinutes: data.preparationMinutes,
+        cookingMinutes: data.cookingMinutes,
+        readyInMinutes: data.readyInMinutes,
+        servings: data.servings,
+        image: data.image,
+        summary: data.summary,
+        ingredients: ingredients,
+        instructions: data.instructions,
+      };
+      return res.json(meal);
+    })
+    .catch((errors) => {
+      console.log(errors);
+    });
 });
 
 module.exports = router;

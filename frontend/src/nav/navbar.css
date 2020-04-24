@@ -54,12 +54,36 @@
 }
 
 .top-bar.other {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 50px;
+  position: initial;
+  background-color: #679436;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  display: table;
 }
 
+.top-bar.other button {
+  background-color: #5c8001;
+}
+
+.top-bar.other button:hover {
+  background-color: #447604;
+}
+
+.profile-logout {
+  display: flex;
+  align-items: center;
+  padding-right: 100px;
+}
 .top-bar.inactive {
   display: none;
+}
+
+.profile-logout {
+  padding-right: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
 }
 
 .login-modal {
@@ -87,4 +111,11 @@
   font-size: 20px;
   cursor: pointer;
   color: #333;
+}
+
+.logo{
+  height:32px;
+  padding: 0px;
+  margin: 0px;
+  /* background-color: seagreen; */
 }

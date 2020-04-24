@@ -32,9 +32,9 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <div className="profile-logout">
           <Link to={"/profile"}>
-            <p>Profile</p>
+            <button><p>Profile</p></button>
           </Link>
           <button onClick={this.logoutUser}>
             <p>Logout</p>
@@ -90,7 +90,7 @@ class NavBar extends React.Component {
         </div>
         <div className={topNav}>
           <Link to={"/"}>
-            <h1>zoe</h1>
+            <img src={require("./zoeLogo2.png")} className="logo" />
           </Link>
           {this.getLinks()}
         </div>
