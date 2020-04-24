@@ -1,5 +1,5 @@
 const validNum = (num) => {
-  return typeof num === "number" && num.toString().length > 0;
+  return typeof num === "number";
 };
 
 module.exports = validNum;

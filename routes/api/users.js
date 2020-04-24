@@ -63,11 +63,11 @@ router.post("/register", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        weight: req.body.weight,
-        heightFeet: req.body.heightFeet,
+        weight: Number(req.body.weight),
+        heightFeet: Number(req.body.heightFeet),
         heightInches: req.body.heightInches,
         gender: req.body.gender,
-        targetWeight: req.body.targetWeight,
+        targetWeight: Number(req.body.targetWeight),
         diet: req.body.diet,
         exclusions: req.body.exclusions,
         targetCalories: targetCalories,
@@ -180,6 +180,13 @@ router.post("/login", (req, res) => {
         return res.status(400).json(errors);
       }
     });
+  });
+});
+
+router.get("/profile/:user_id", (req, res) => {
+  const user_id = req.params.user_id;
+  User.findById(user_id).then((user) => {
+    return res.json(user);
   });
 });
 

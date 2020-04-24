@@ -5,7 +5,7 @@ class Step1 extends React.Component {
     if (this.props.currentStep !== 1) {
       return null;
     }
-
+    // debugger;
     return (
       <div className="signup-form-container">
         <div className="signup-form-title">
@@ -28,16 +28,24 @@ class Step1 extends React.Component {
             <div className="signup-gender-title">
               <p>Gender</p>
             </div>
-            <select
-              value={this.props.gender}
-              onChange={this.props.update("gender")}
-            >
-              <option defaultValue disabled>
-                Gender
-              </option>
-              <option>M</option>
-              <option>F</option>
-            </select>
+            <div className="signup-gender-btn">
+              <button
+                className={this.props.female}
+                type="button"
+                onClick={this.props.update("gender")}
+                value="F"
+              >
+                <p>Female</p>
+              </button>
+              <button
+                className={this.props.male}
+                type="button"
+                onClick={this.props.update("gender")}
+                value="M"
+              >
+                <p>Male</p>
+              </button>
+            </div>
           </label>
           <label className="signup-age">
             <div className="signup-age-title">

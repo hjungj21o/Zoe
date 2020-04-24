@@ -10,14 +10,24 @@ module.exports = function validateRegisterInput(data) {
   data.password2 = validText(data.password2) ? data.password2 : "";
   data.name = validText(data.name) ? data.name : "";
   data.gender = validText(data.gender) ? data.gender : "";
-  data.age = validNum(data.age) ? data.age : 0;
-  data.weight = validNum(data.weight) ? data.weight : 0;
-  data.heightFeet = validNum(data.heightFeet) ? data.heightFeet : 0;
-  data.heightInches = validNum(data.heightInches) ? data.heightInches : 0;
-  data.targetWeight = validNum(data.targetWeight) ? data.targetWeight : 0;
+  data.age = validNum(Number(data.age)) ? Number(data.age) : 0;
+  data.weight = validNum(Number(data.weight)) ? Number(data.weight) : 0;
+  data.heightFeet = validNum(Number(data.heightFeet))
+    ? Number(data.heightFeet)
+    : 0;
+  data.heightInches = validNum(Number(data.heightInches))
+    ? Number(data.heightInches)
+    : 0;
+  data.targetWeight = validNum(Number(data.targetWeight))
+    ? Number(data.targetWeight)
+    : 0;
 
   if (data.name.length === 0) {
     errors.name = "Name is required";
+  }
+
+  if (Validator.isEmpty(data.gender)) {
+    errors.gender = "Gender field is required";
   }
 
   if (!Number.isInteger(data.age)) {

@@ -1,10 +1,13 @@
 import React from "react";
 
 class Step2 extends React.Component {
+  
+    
   render() {
     if (this.props.currentStep !== 2) {
       return null;
     }
+    // debugger;
     return (
       <div className="signup-form-container">
         {/* // <div className="signup-form-input"> */}
@@ -34,38 +37,38 @@ class Step2 extends React.Component {
           </label>
           <label className="signup-exclusions">
             <div className="signup-exclusion">
-              <p>Check if you would like to exclude:</p>
-
+              <p className="signup-exclusion-title">Avoids</p>
               <ul>
                 <li>
                   <input
                     type="checkbox"
-                    value="Dairy Free"
-                    onClick={this.props.updateCheckBox}
+                    name="Dairy Free"
+                    //checked={this.props.checkboxes.one}
+                    onChange={this.props.updateCheckBox}
                   />
                   <p>Dairy</p>
                 </li>
                 <li>
                   <input
                     type="checkbox"
-                    value="Egg Free"
-                    onClick={this.props.updateCheckBox}
+                    name="Egg Free"
+                    onChange={this.props.updateCheckBox}
                   />
                   <p>Eggs</p>
                 </li>
                 <li>
                   <input
                     type="checkbox"
-                    value="Gluten Free"
-                    onClick={this.props.updateCheckBox}
+                    name="Gluten Free"
+                    onChange={this.props.updateCheckBox}
                   />
                   <p>Gluten</p>
                 </li>
                 <li>
                   <input
                     type="checkbox"
-                    value="Grain Free"
-                    onClick={this.props.updateCheckBox}
+                    name="Grain Free"
+                    onChange={this.props.updateCheckBox}
                   />
                   <p>Grains</p>
                 </li>
@@ -74,15 +77,15 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Peanut Free"
-                    onClick={this.props.updateCheckBox}
+                    name="Peanut Free"
+                    onChange={this.props.updateCheckBox}
                   />
                   <p>Peanuts</p>
                 </li>
                 <li>
                   <input
                     type="checkbox"
-                    value="Seafood Free"
+                    name="Seafood Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Seafood</p>
@@ -90,7 +93,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Sesame Free"
+                    name="Sesame Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Sesame</p>
@@ -98,7 +101,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Shellfish Free"
+                    name="Shellfish Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Shellfish</p>
@@ -108,7 +111,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Soy Free"
+                    name="Soy Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Soy</p>
@@ -116,7 +119,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Sulfite Free"
+                    name="Sulfite Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Sulfite</p>
@@ -124,7 +127,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Tree Nut Free"
+                    name="Tree Nut Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Tree Nuts</p>
@@ -132,7 +135,7 @@ class Step2 extends React.Component {
                 <li>
                   <input
                     type="checkbox"
-                    value="Wheat Free"
+                    name="Wheat Free"
                     onClick={this.props.updateCheckBox}
                   />
                   <p>Wheat</p>
