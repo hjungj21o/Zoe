@@ -9,7 +9,7 @@ class HomePage extends React.Component {
         <div className="home-text-container">
           <h1>Healthy Eating Habits Made Incredibly Simple.</h1>
           <h3>
-            EatLove provides personalized meal recommendations and coaching to
+            Zoe provides personalized meal recommendations and coaching to
             help you build lasting, healthy habits. Easy recipes, smart
             restaurant choices, grocery lists and optional delivery.
           </h3>

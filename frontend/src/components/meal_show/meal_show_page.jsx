@@ -2,10 +2,6 @@ import React from "react";
 import parse from "html-react-parser";
 
 class MealShowPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchMeal(this.props.match.params.meal_id);
   }
@@ -24,9 +20,6 @@ class MealShowPage extends React.Component {
       const mealInstructionsHtml =
         "<span> <h2>Instructions</h2>  " + meal.instructions + "</span>";
       let mealSummary = meal.summary;
-
-      const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
-      let mealSummary=meal.summary;
 
       mealSummary = mealSummary.slice(
         0,
@@ -62,7 +55,6 @@ class MealShowPage extends React.Component {
                 <img className="big-image" src={meal.image} />
               </div>
             </div>
-            
           </div>
         </div>
       );
