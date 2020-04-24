@@ -5,11 +5,12 @@ import NavBar from "./navbar";
 
 const mapStateToProps = (state) => ({
   loggedIn: state.session.isAuthenticated,
+  userId: state.session.user.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   clearErrors: () => dispatch(clearErrors()),
-  logout: () => dispatch(logout())
-})
+  logout: () => dispatch(logout()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
