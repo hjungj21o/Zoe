@@ -1,61 +1,60 @@
-import React from 'react' 
-import MealIndexItem from './meal_index_item'
-import './meals.css'
+import React from "react";
+import MealIndexItem from "./meal_index_item";
+import "./meals.css";
 
 class DaysMealsCard extends React.Component {
+  constructor(props) {
+    super(props);
+    let current_date_arr = this.props.day.toString().split(" ").slice(1, 4);
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
 
-    constructor(props){
-        super(props)
-        let current_date_arr = this.props.day.toString().split(" ").slice(1, 4);
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        
-       
-        let yr = current_date_arr[2]; 
-        let day = current_date_arr[1]; 
-        let month = (months.indexOf(current_date_arr[0]) + 1).toString(); 
+    let yr = current_date_arr[2];
+    let day = current_date_arr[1];
+    let month = (months.indexOf(current_date_arr[0]) + 1).toString();
 
-        this.dateString = yr + '-' + month + '-' + day; 
-        this.handleClick=this.handleClick.bind(this); 
-        this.fullDateString = current_date_arr.slice(0, 2).join(" ") + ", " + current_date_arr.slice(2);
+    this.dateString = yr + "-" + month + "-" + day;
+    this.handleClick = this.handleClick.bind(this);
+    this.fullDateString =
+      current_date_arr.slice(0, 2).join(" ") + ", " + current_date_arr.slice(2);
+  }
 
-    //    this.state = { line: "" };
-    //    this.activeLine = this.activeLine.bind(this);
-    //    this.deactiveLine = this.deactiveLine.bind(this);
+
+  handleClick(e) {
+    e.preventDefault();
+
+    let id = this.props.currentUserId;
+    let data = { userId: id, mealDate: this.dateString };
+
+    this.props.fetchUserMeals(data);
+    this.props.receiveSelectedDay(this.props.day);
+  }
+
+  componentDidMount() {
+    let today = new Date();
+    let id = this.props.currentUserId;
+    let data = { userId: id, mealDate: this.dateString };
+
+    if (
+      this.props.day.getUTCMonth() === today.getUTCMonth() &&
+      this.props.day.getUTCDate() === today.getUTCDate() &&
+      this.props.day.getUTCFullYear() === today.getUTCFullYear()
+    ) {
+      this.props.fetchUserMeals(data);
     }
-
-    handleClick(e){
-        e.preventDefault(); 
-        
-        let id = this.props.currentUserId; 
-        let data = {userId: id, mealDate: this.dateString}; 
-        
-        this.props.fetchUserMeals(data); 
-        this.props.receiveSelectedDay(this.props.day)
-    }
-
-    componentDidMount() {
-        let today = new Date(); 
-        let id = this.props.currentUserId;
-        let data = { userId: id, mealDate: this.dateString }; 
-
-        if (this.props.day.getUTCMonth() === today.getUTCMonth() &&
-            this.props.day.getUTCDate() === today.getUTCDate() &&
-            this.props.day.getUTCFullYear() === today.getUTCFullYear()){
-                this.props.fetchUserMeals(data);
-                // this.setState({ line: "day-label-bottom" });
-            }
-    }
-
-    // activeLine() {
-    //     this.setState({ line: "day-label-bottom" });
-    // }
-
-    // deactiveLine() {
-
-    //         this.setState({ line: "" });
-    
-    // }
-
+  }
 
     render(){
 
@@ -94,4 +93,4 @@ class DaysMealsCard extends React.Component {
     }
 }
 
-export default DaysMealsCard
+export default DaysMealsCard;

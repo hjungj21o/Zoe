@@ -36,6 +36,15 @@ input, button {
     outline: none;
 }
 
+button {
+    cursor: pointer;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
 .main-container {
     background: url("https://zoe-image.s3.amazonaws.com/main-img.jpg");
     background-size: 100%;

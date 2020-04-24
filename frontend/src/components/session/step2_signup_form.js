@@ -34,8 +34,7 @@ class Step2 extends React.Component {
           </label>
           <label className="signup-exclusions">
             <div className="signup-exclusion">
-              <p>Check if you would like to exclude:</p>
-
+              <p className="signup-exclusion-title">Avoids</p>
               <ul>
                 <li>
                   <input
