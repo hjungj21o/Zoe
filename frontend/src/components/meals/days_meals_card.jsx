@@ -83,8 +83,11 @@ class DaysMealsCard extends React.Component {
           {/* <nav className={this.state.line}></nav> */}
         </div>
         <div className={`day-item ${display}`}>
-          <ul>
-            <h1>{this.fullDateString}</h1>
+          <ul className="date-container">
+            <div className="day-header">
+              <h1>This Week's Meal Plan</h1>
+              <p>{this.fullDateString}</p>
+            </div>
             <nav className="days-meals">
               <ul>{days_meals}</ul>
             </nav>
