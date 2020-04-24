@@ -1,17 +1,20 @@
 import { connect } from "react-redux";
 import { signup, login } from "../../actions/session_actions";
+// import { receiveCurrentStep } from "../../actions/signup_ui_actions";
 import MasterSignupForm from "./master_signup_form";
+import { errorSelector } from "../../selectors/error_selector";
 
 const mapStateToProps = (state) => {
+  
   return {
     signedIn: state.session.isSignedIn,
-    errors: state.errors.session,
+    errors: errorSelector(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signup: (user) => dispatch(signup(user)),
+    signup: (user, currentStep) => dispatch(signup(user, currentStep)),
     login: (user) => dispatch(login(user)),
   };
 };

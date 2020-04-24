@@ -1,6 +1,6 @@
 .master-signup-form-container {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.68);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -20,8 +20,9 @@
 }
 
 .master-signup-form-container select {
-  height: 25px;
-  width: 100px;
+  padding: 10px;
+  height: 35px;
+  width: 200px;
 }
 
 .signup-form-input p {
@@ -75,9 +76,18 @@
   display: flex;
 }
 
+p.signup-exclusion-title {
+  margin: 8px 0;
+}
+
 .signup-exclusions li {
   display: flex;
   padding-right: 10px;
+}
+
+.signup-exclusion ul li p {
+  margin: 0;
+  line-height: 20px;
 }
 
 .signup-exclusions li input {
@@ -158,5 +168,73 @@
 }
 
 .signup-exclusion {
-  margin-bottom: 10px;
+  margin: 20px 0;
+}
+
+.signup-form-input ul:first-child {
+  padding-left: 0;
+}
+
+.signup-exclusions ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-exclusions ul li {
+  width: 25%;
+}
+
+.signup-errors-ul {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 2px 0;
+  list-style: none;
+  font-size: 13px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+li.signup-errors-ul {
+  margin-bottom: 0;
+}
+
+.signup-form-input ul:first-child li:first-child {
+  padding-top: 8px;
+}
+
+.signup-form-input ul:first-child li:last-child {
+  padding-bottom: 8px;
+}
+
+.signup-gender-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-gender-btn button {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    width: 50%;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+
+.signup-gender-btn button:first-child {
+  margin-right: 15px;
+}
+
+.signup-gender-btn button p {
+  margin: 0;
+}
+
+button.blue {
+  background-color: #ad0101;
+  border: 1px solid #ad0101;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
