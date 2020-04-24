@@ -183,4 +183,11 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/profile/:user_id", (req, res) => {
+  const user_id = req.params.user_id;
+  User.findById(user_id).then((user) => {
+    return res.json(user);
+  });
+});
+
 module.exports = router;

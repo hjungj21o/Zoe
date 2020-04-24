@@ -33,8 +33,10 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="profile-logout">
-          <Link to={"/profile"}>
-            <button><p>Profile</p></button>
+          <Link to={`/users/profile/${this.props.userId}`}>
+            <button>
+              <p>Profile</p>
+            </button>
           </Link>
           <button onClick={this.logoutUser}>
             <p>Logout</p>
@@ -85,7 +87,7 @@ class NavBar extends React.Component {
                 <i className="fas fa-times"></i>
               </p>
             </div>
-            <LoginFormContainer closeModal={this.closeModal}/>
+            <LoginFormContainer closeModal={this.closeModal} />
           </div>
         </div>
         <div className={topNav}>
