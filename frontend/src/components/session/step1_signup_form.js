@@ -29,23 +29,23 @@ class Step1 extends React.Component {
               <p>Gender</p>
             </div>
             <div className="signup-gender-btn">
-              <button className={this.props.female} onClick={this.props.update("gender")} value="F">
+              <button
+                className={this.props.female}
+                type="button"
+                onClick={this.props.update("gender")}
+                value="F"
+              >
                 <p>Female</p>
               </button>
-              <button className={this.props.male} onClick={this.props.update("gender")} value="M">
+              <button
+                className={this.props.male}
+                type="button"
+                onClick={this.props.update("gender")}
+                value="M"
+              >
                 <p>Male</p>
               </button>
             </div>
-            {/* <select
-              value={this.props.gender}
-              onChange={this.props.update("gender")}
-            >
-              <option defaultValue disabled>
-                Gender
-              </option>
-              <option>M</option>
-              <option>F</option>
-            </select> */}
           </label>
           <label className="signup-age">
             <div className="signup-age-title">

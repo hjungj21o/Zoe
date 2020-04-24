@@ -39,14 +39,18 @@ class MasterSignUpForm extends React.Component {
   }
 
   update(field) {
+    debugger;
     return (e) => {
-      if (e.currentTarget.value === "F") this.setState({ female: "blue", male: "" });
-      if (e.currentTarget.value === "M") this.setState({ male: "blue", female: "" });
+      if (e.currentTarget.value === "F")
+        this.setState({ female: "blue", male: "" });
+      if (e.currentTarget.value === "M")
+        this.setState({ male: "blue", female: "" });
 
       this.setState({
         [field]: e.currentTarget.value,
       });
-    }
+      debugger;
+    };
   }
 
   updateCheckBox() {
@@ -55,6 +59,7 @@ class MasterSignUpForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     let user = {
       email: this.state.email,
@@ -72,8 +77,13 @@ class MasterSignUpForm extends React.Component {
       errors: {},
     };
 
-    this.props.signup(user, this.props.history);
+    debugger;
 
+    return this.props.signup(user, this.state.currentStep).then(() => {
+      if (Object.values(this.props.errors).length === 0) {
+        return this._next();
+      }
+    })
   }
 
   _next() {
@@ -87,7 +97,7 @@ class MasterSignUpForm extends React.Component {
 
   _prev() {
     let currentStep = this.state.currentStep;
-    // If the current step is 2, then subtract one on "previous" button click
+    // If the current step is 2 or 3, then subtract one on "previous" button click
     currentStep = currentStep <= 1 ? 1 : currentStep - 1;
     this.setState({
       currentStep: currentStep,
@@ -99,11 +109,11 @@ class MasterSignUpForm extends React.Component {
     // If the current step is not 1, then render the "previous" button
     if (currentStep !== 1) {
       return (
-        <button
-          className="btn btn-secondary"
-          type="button"
+        <button 
+          className="btn btn-secondary" 
           onClick={this._prev}
-        >
+          type="button"
+          >
           <p>Previous</p>
         </button>
       );
@@ -113,21 +123,21 @@ class MasterSignUpForm extends React.Component {
   }
 
   nextButton() {
+    // this.state === empty, onClick, handleErrors.
     let currentStep = this.state.currentStep;
     // If the current step is not 3, then render the "next" button
     if (currentStep < 3) {
       return (
-        <button
-          className="btn btn-primary float-right"
+        <button 
+          className="btn btn-primary float-right" 
+          onClick={this.handleSubmit}
           type="button"
-          // onClick={this._next}
-          onClick={this._next}
-        >
+          >
           <p>Next</p>
         </button>
       );
     }
-    // ...else render nothing
+    // ...else rener nothing
     return null;
   }
 
@@ -193,12 +203,12 @@ class MasterSignUpForm extends React.Component {
         return (
           <ul>
             {Object.keys(this.props.errors).map((error, i) => {
-                return (
-                  <li key={`error-${i}`} className="signup-errors-ul">
-                    <p>{this.props.errors[error]}</p>
-                  </li>
-                );
-            })[0]}
+              return (
+                <li key={`error-${i}`} className="signup-errors-ul">
+                  <p>{this.props.errors[error]}</p>
+                </li>
+              );
+            })}
           </ul>
         );
       }
@@ -211,12 +221,11 @@ class MasterSignUpForm extends React.Component {
         <div className="master-signup-form-container">
           <div className="master-signup-form">
             {/* <p>Step {this.state.currentStep} of 3 </p> */}
-            {/* <form onSubmit={this.handleSubmit}> */}
-            <form>
+            <form onSubmit={this.handleSubmit}>
+              {/* {this.handleErrors()} */}
               <Step1
                 currentStep={this.state.currentStep}
                 handleErrors={this.handleErrors}
-                handleChange={this.handleChange}
                 update={this.update}
                 name={this.state.name}
                 weight={this.state.weight}
@@ -224,22 +233,18 @@ class MasterSignUpForm extends React.Component {
                 heightInches={this.state.heightInches}
                 gender={this.state.gender}
                 age={this.state.age}
-                male={this.state.male}
-                female={this.state.female}
               />
               <Step2
                 currentStep={this.state.currentStep}
                 handleErrors={this.handleErrors}
-                handleChange={this.handleChange}
                 update={this.update}
                 updateCheckBox={this.updateCheckBox}
                 diet={this.state.diet}
-                exclusions={this.state.exlusions}
+                exclusions={this.state.exclusions}
                 targetWeight={this.state.targetWeight}
               />
               <Step3
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}
                 handleErrors={this.handleErrors}
                 update={this.update}
                 email={this.state.email}

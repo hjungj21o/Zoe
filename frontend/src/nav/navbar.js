@@ -85,7 +85,7 @@ class NavBar extends React.Component {
                 <i className="fas fa-times"></i>
               </p>
             </div>
-            <LoginFormContainer />
+            <LoginFormContainer closeModal={this.closeModal} />
           </div>
         </div>
         <div className={topNav}>

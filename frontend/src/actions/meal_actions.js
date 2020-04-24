@@ -14,7 +14,6 @@ export const receiveUserMeals = (meals) => ({
 // });
 
 export const fetchUserMeals = (data) => {
-  debugger;
   return (dispatch) => {
     return MEALUtil.getUserMeals(data)
       .then((meals) => dispatch(receiveUserMeals(meals)))
