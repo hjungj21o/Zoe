@@ -1,4 +1,4 @@
-import { RECEIVE_SELECTED_DAY } from "../actions/day_actions";
+import { RECEIVE_SELECTED_DAY, CLEAR_SELECTED_DAY } from "../actions/day_actions";
 
 let today = new Date();
 
@@ -7,6 +7,8 @@ const DayReducer = (state = today, action) => {
   switch (action.type) {
     case RECEIVE_SELECTED_DAY:
       return action.day;
+    case CLEAR_SELECTED_DAY: 
+      return today;
     default:
       return state;
   }
