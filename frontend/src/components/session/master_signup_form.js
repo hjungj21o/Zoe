@@ -1,7 +1,7 @@
 import React from "react";
 import Step1 from "./step1_signup_form";
-import Step2 from "./step3_signup_form";
-import Step3 from "./step2_signup_form";
+import Step2 from "./step2_signup_form";
+import Step3 from "./step3_signup_form";
 import "./signup.css";
 
 class MasterSignUpForm extends React.Component {
@@ -25,6 +25,18 @@ class MasterSignUpForm extends React.Component {
       male: "",
       female: "",
       errors: {},
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+      six: false,
+      seven: false,
+      eight: false,
+      nine: false,
+      ten: false,
+      eleven: false,
+      twelve: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,10 +47,25 @@ class MasterSignUpForm extends React.Component {
     this._prev = this._prev.bind(this);
     this.previousButton = this.previousButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
+
+    // this.checkboxes = {
+    //   one: "false",
+    //   two: "false",
+    //   three: "false",
+    //   four: "false",
+    //   five: "false",
+    //   six: "false",
+    //   seven: "false",
+    //   eight: "false",
+    //   nine: "false",
+    //   ten: "false",
+    //   eleven: "false",
+    //   twelve: "false"
+    // }
+  
   }
 
   update(field) {
-    debugger;
     return (e) => {
       if (e.currentTarget.value === "F")
         this.setState({ female: "blue", male: "" });
@@ -48,17 +75,31 @@ class MasterSignUpForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value,
       });
-      debugger;
+      // debugger;
     };
   }
 
-  updateCheckBox() {
+  updateCheckBox(e) {
+    debugger;
+    let id = e.currentTarget.value
+
+    if (this.state[id] === true){
+      debugger
+      this.setState({[id]: false})
+    }else{
+      debugger
+      this.setState({[id]: true })
+    }
+    debugger
+
     let exclusionValues = this.state.exclusions;
-    return (e) => exclusionValues.push(e.currentTarget.value);
+    return (e) => {
+      exclusionValues.push(e.currentTarget.name);
+    }
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     let user = {
       email: this.state.email,
@@ -76,7 +117,7 @@ class MasterSignUpForm extends React.Component {
       errors: {},
     };
 
-    debugger;
+    // debugger;
 
     return this.props.signup(user, this.state.currentStep).then(() => {
       if (Object.values(this.props.errors).length === 0) {
@@ -231,6 +272,8 @@ class MasterSignUpForm extends React.Component {
                 heightFeet={this.state.heightFeet}
                 heightInches={this.state.heightInches}
                 gender={this.state.gender}
+                female={this.state.female}
+                male={this.state.male}
                 age={this.state.age}
               />
               <Step2
@@ -241,6 +284,7 @@ class MasterSignUpForm extends React.Component {
                 diet={this.state.diet}
                 exclusions={this.state.exclusions}
                 targetWeight={this.state.targetWeight}
+                checkboxes={this.state}
               />
               <Step3
                 currentStep={this.state.currentStep}

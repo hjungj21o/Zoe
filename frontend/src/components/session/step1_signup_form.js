@@ -5,7 +5,7 @@ class Step1 extends React.Component {
     if (this.props.currentStep !== 1) {
       return null;
     }
-
+    // debugger;
     return (
       <div className="signup-form-container">
         <div className="signup-form-title">
