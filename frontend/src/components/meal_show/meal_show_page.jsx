@@ -21,6 +21,9 @@ class MealShowPage extends React.Component {
         "<span> <h2>Instructions</h2>  " + meal.instructions + "</span>";
       let mealSummary = meal.summary;
 
+      const mealInstructionsHtml = "<span> <h2>Instructions</h2>  "+meal.instructions+"</span>" ;
+      let mealSummary=meal.summary;
+
       mealSummary = mealSummary.slice(
         0,
         mealSummary.indexOf("All things considered")

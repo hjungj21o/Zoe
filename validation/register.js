@@ -26,6 +26,10 @@ module.exports = function validateRegisterInput(data) {
     errors.name = "Name is required";
   }
 
+  if (Validator.isEmpty(data.gender)) {
+    errors.gender = "Gender field is required";
+  }
+
   if (!Number.isInteger(data.age)) {
     errors.age = "Age must be an integer";
   }
