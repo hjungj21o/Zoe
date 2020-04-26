@@ -1,2 +1,7 @@
 /config/keys_dev.js
 /node_modules
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
