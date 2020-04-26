@@ -1,6 +1,6 @@
 /config/keys_dev.js
 /node_modules
-
+.env
 .env.local
 .env.development.local
 .env.test.local
