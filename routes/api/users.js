@@ -100,29 +100,29 @@ router.post("/register", (req, res) => {
                 },
               })
                 .then((response) => {
-                  let counter = 0; 
+                  let counter = 0;
                   data = response;
                   console.log(data);
                   let meals = data.data.meals;
                   console.log(meals);
                   meals.forEach((meal) => {
-                    if (counter < 3){
-                    let date = new Date();
-                    let new_meal = new Meal({
-                      spoonacularMealId: meal.id,
-                      title: meal.title,
-                      readyInMinutes: meal.readyInMinutes,
-                      servings: meal.servings,
-                      image: `https://spoonacular.com/recipeImages/${meal.id}-312x231`,
-                      mealDate: `${date.getFullYear()}-${
-                        date.getMonth() + 1
-                      }-${date.getDate()}`,
-                      userId: user.id,
-                    });
-                    new_meal.save();
+                    if (counter < 3) {
+                      let date = new Date();
+                      let new_meal = new Meal({
+                        spoonacularMealId: meal.id,
+                        title: meal.title,
+                        readyInMinutes: meal.readyInMinutes,
+                        servings: meal.servings,
+                        image: `https://spoonacular.com/recipeImages/${meal.id}-312x231`,
+                        mealDate: `${date.getFullYear()}-${
+                          date.getMonth() + 1
+                        }-${date.getDate()}`,
+                        userId: user.id,
+                      });
+                      new_meal.save();
 
-                    counter += 1; 
-                  }
+                      counter += 1;
+                    }
                   });
                   jwt.sign(
                     payload,
@@ -139,7 +139,6 @@ router.post("/register", (req, res) => {
                 .catch((error) => {
                   console.log(error);
                 });
-              
             })
             .catch((err) => console.log(err));
         });
@@ -165,7 +164,7 @@ router.post("/login", (req, res) => {
       errors.email = "User not found";
       return res.status(404).json(errors);
     }
-
+    //
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
         const payload = { id: user.id, email: user.email };
