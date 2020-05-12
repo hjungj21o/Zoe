@@ -1,10 +1,6 @@
 import React from "react";
 import "./user_profile.css";
 class UserProfile extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.getUserProfile(this.props.match.params.user_id);
   }
@@ -19,7 +15,10 @@ class UserProfile extends React.Component {
                 <p>Photo</p>
               </nav>
               <div className="profile-image">
-                <img src="https://pacebook-seed.s3.amazonaws.com/image/no_image.jpeg" />
+                <img
+                  src="https://pacebook-seed.s3.amazonaws.com/image/no_image.jpeg"
+                  alt="profile"
+                />
                 <div className="profile-img-desc">
                   <p>Choose an image from your computer</p>
                   <button>Browse</button>
