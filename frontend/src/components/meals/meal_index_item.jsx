@@ -21,7 +21,7 @@ class MealIndexItem extends React.Component {
           </nav>
           <div className="meal-preview-img">
             <Link to={url}>
-              <img src={this.props.meal.image} />
+              <img src={this.props.meal.image} alt="Meal" />
             </Link>
           </div>
           <div className="meal-preview-text">
@@ -33,11 +33,12 @@ class MealIndexItem extends React.Component {
             <hr />
             <nav className="meal-preview-text-desc">
               <p>
-                <i class="far fa-clock"></i> {this.props.meal.readyInMinutes}{" "}
-                minutes
+                <i className="far fa-clock"></i>{" "}
+                {this.props.meal.readyInMinutes} minutes
               </p>
               <p>
-                <i class="far fa-user"></i> {this.props.meal.servings} servings
+                <i className="far fa-user"></i> {this.props.meal.servings}{" "}
+                servings
               </p>
             </nav>
             <nav className="meal-preview-btn">

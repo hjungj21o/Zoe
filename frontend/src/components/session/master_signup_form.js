@@ -36,9 +36,6 @@ class MasterSignUpForm extends React.Component {
     this.previousButton = this.previousButton.bind(this);
     this.nextButton = this.nextButton.bind(this);
     this.checkedOrNah = this.checkedOrNah.bind(this);
-
-   
-  
   }
 
   update(field) {
@@ -63,9 +60,8 @@ class MasterSignUpForm extends React.Component {
       } else {
         exclusionValues.push(val);
       }
-      this.setState(this.state)
-    }
-
+      this.setState(this.state);
+    };
   }
 
   checkedOrNah(val) {
@@ -96,7 +92,7 @@ class MasterSignUpForm extends React.Component {
       if (Object.values(this.props.errors).length === 0) {
         return this._next();
       }
-    })
+    });
   }
 
   _next() {
@@ -122,11 +118,11 @@ class MasterSignUpForm extends React.Component {
     // If the current step is not 1, then render the "previous" button
     if (currentStep !== 1) {
       return (
-        <button 
-          className="btn btn-secondary" 
+        <button
+          className="btn btn-secondary"
           onClick={this._prev}
           type="button"
-          >
+        >
           <p>Previous</p>
         </button>
       );
@@ -141,11 +137,11 @@ class MasterSignUpForm extends React.Component {
     // If the current step is not 3, then render the "next" button
     if (currentStep < 3) {
       return (
-        <button 
-          className="btn btn-primary float-right" 
+        <button
+          className="btn btn-primary float-right"
           onClick={this.handleSubmit}
           type="button"
-          >
+        >
           <p>Next</p>
         </button>
       );
