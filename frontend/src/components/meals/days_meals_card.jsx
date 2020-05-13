@@ -56,6 +56,17 @@ class DaysMealsCard extends React.Component {
   }
 
   render() {
+
+    let styleClass; 
+    debugger
+    if (this.props.selectedDay.toString().split(" ")[0] === this.props.day.toString().split(" ")[0])
+    {
+      styleClass = 'highlight-me'; 
+      debugger
+    }else{
+      styleClass = ""; 
+    }
+    
     let days_meals =
       this.props.meals.length !== 0
         ? this.props.meals.map((meal, index) => {
@@ -79,7 +90,7 @@ class DaysMealsCard extends React.Component {
           onMouseOut={this.deactiveLine}
           className="day-label"
         >
-          <p>{this.props.day.toString().split(" ")[0]}</p>
+          <p className={styleClass}>{this.props.day.toString().split(" ")[0]}</p>
           {/* <nav className={this.state.line}></nav> */}
         </div>
         <div className={`day-item ${display}`}>
