@@ -235,3 +235,9 @@ i.fa-heart {
   margin-bottom: 50px;
   margin-top: -10px;
 }
+
+p.highlight-me {
+  color: #4CAF50; 
+  font-weight: bold; 
+  text-decoration: underline; 
+}
