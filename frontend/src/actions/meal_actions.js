@@ -2,6 +2,7 @@ import * as MEALUtil from "../util/meal_util";
 
 export const RECEIVE_USER_MEALS = "RECEIVE_USER_MEALS";
 export const RECEIVE_MEAL = "RECEIVE_MEAL";
+export const CLEAR_MEALS = "CLEAR_MEALS"; 
 
 export const receiveUserMeals = (meals) => ({
   type: RECEIVE_USER_MEALS,
@@ -12,6 +13,10 @@ export const receiveMeal = (meal) => ({
   type: RECEIVE_MEAL,
   meal,
 });
+
+export const clearMeals = () => ({
+  type: CLEAR_MEALS
+})
 
 export const fetchUserMeals = (data) => {
   return (dispatch) => {
@@ -29,7 +34,4 @@ export const fetchMeal = (mealId) => {
   };
 };
 
-// export const createNewMeals = (data) => (dispatch) =>
-//   MEALUtil.createMeals(data)
-//     .then((meals) => dispatch(receiveNewMeals(meals)))
-//     .catch((err) => console.log(err));
+

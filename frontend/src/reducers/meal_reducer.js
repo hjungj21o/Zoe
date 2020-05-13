@@ -1,4 +1,4 @@
-import { RECEIVE_USER_MEALS } from "../actions/meal_actions";
+import { RECEIVE_USER_MEALS, CLEAR_MEALS } from "../actions/meal_actions";
 
 
 const mealReducer = (state = [], action) => {
@@ -6,6 +6,8 @@ const mealReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_USER_MEALS:
       return action.meals.data;
+    case CLEAR_MEALS:
+      return []; 
     default:
       return state;
   }
