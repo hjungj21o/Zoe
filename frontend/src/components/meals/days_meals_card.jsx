@@ -58,11 +58,11 @@ class DaysMealsCard extends React.Component {
   render() {
 
     let styleClass; 
-    debugger
+   
     if (this.props.selectedDay.toString().split(" ")[0] === this.props.day.toString().split(" ")[0])
     {
       styleClass = 'highlight-me'; 
-      debugger
+     
     }else{
       styleClass = ""; 
     }
