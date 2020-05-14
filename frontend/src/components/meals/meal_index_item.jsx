@@ -47,9 +47,6 @@ class MealIndexItem extends React.Component {
               </Link>
             </nav>
           </div>
-          <nav className="fav-recipe">
-            <i className="far fa-heart"></i>
-          </nav>
         </div>
       </li>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import DaysMealsCard from "./days_meals_card";
+import Footer from "../footer/footer";
 import "./meals.css";
 
 class MealIndex extends React.Component {
@@ -58,9 +59,12 @@ class MealIndex extends React.Component {
     });
 
     return (
-      <div className="days">
-        <div className="day-meal-container">{day_meal_cards}</div>
-      </div>
+      <>
+        <div className="days">
+          <div className="day-meal-container">{day_meal_cards}</div>
+        </div>
+        <Footer klass="index-footer"/>
+      </>
     );
   }
 }
