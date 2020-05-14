@@ -1,0 +1,59 @@
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  height: 100px;
+  width: 100%;
+  background-color: rgb(220, 220, 220);
+}
+
+.dev-name {
+  text-align: center;
+  font-size: 16px;
+}
+
+ul.sites {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.sites li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 30px;
+}
+
+.sites a {
+  color: #7a7a7a;
+}
+
+.sites a > i {
+  font-size: 20px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.sites li:hover {
+  background-color: lightgray;
+}
+
+.hide {
+  visibility: hidden;
+  transition: visibility 1s linear;
+  opacity: 0;
+}
+
+.footer-container.index-footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-container.show-footer {
+  position: relative;
+  bottom: 0;
+}
+
+.sites {
+  margin: 15px 0;
+}

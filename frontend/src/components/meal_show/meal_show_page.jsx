@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../footer/footer";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 
@@ -72,12 +73,13 @@ class MealShowPage extends React.Component {
               </div> */}
             </div>
           </div>
+          <Footer klass="show-footer"/>
         </div>
       );
     } else {
       mealInfo = "";
     }
-    return <div>{mealInfo}</div>;
+    return <>{mealInfo}</>;
   }
 }
 
