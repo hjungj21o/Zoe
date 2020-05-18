@@ -1,4 +1,4 @@
-import { getProfile } from "../util/user_util";
+import { getProfile, editProfile } from "../util/user_util";
 export const RECEIVE_USER_PROFILE = "RECEIVE_USER_PROFILE";
 
 export const receiveUserProfile = (user) => ({
@@ -8,3 +8,7 @@ export const receiveUserProfile = (user) => ({
 
 export const getUserProfile = (id) => (dispatch) =>
   getProfile(id).then((user) => dispatch(receiveUserProfile(user)));
+
+export const editUserProfile = (id, userData) => (dispatch) => {
+  editProfile(id, userData).then(user => dispatch(receiveUserProfile(user)))
+}

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { getUserProfile } from "../../actions/user_actions";
+import { getUserProfile, editUserProfile } from "../../actions/user_actions";
 import UserProfile from "./user_profile";
 
 const mapStateToProps = (state) => {
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getUserProfile: (id) => dispatch(getUserProfile(id)),
+    editUserProfile: (id, userData) => dispatch(editUserProfile(id, userData))
   };
 };
 

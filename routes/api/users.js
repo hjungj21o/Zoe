@@ -190,10 +190,21 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/profile/:user_id", (req, res) => {
+  debugger
   const user_id = req.params.user_id;
   User.findById(user_id).then((user) => {
     return res.json(user);
   });
 });
+
+router.patch("/profile/:user_id", (req, res) => {
+  const user_id = req.params.user_id; 
+  
+  User.findByIdAndUpdate(user_id, { $set: req.body }, {new: true}).then((user) => {
+    return res.json(user)
+  }).catch((error) => {
+    return res.json(error)
+  })
+})
 
 module.exports = router;
