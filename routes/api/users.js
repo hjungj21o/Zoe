@@ -190,7 +190,7 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/profile/:user_id", (req, res) => {
-  debugger
+  
   const user_id = req.params.user_id;
   User.findById(user_id).then((user) => {
     return res.json(user);
@@ -199,12 +199,81 @@ router.get("/profile/:user_id", (req, res) => {
 
 router.patch("/profile/:user_id", (req, res) => {
   const user_id = req.params.user_id; 
+  let user = User.findById(user_id).then(user => {
+    let delta;
+    let targetWeight = req.body.targetWeight ? req.body.targetWeight : user.targetWeight;
+    let weight = req.body.weight ? req.body.weight : user.weight;
+    let heightFeet = req.body.heightFeet ? req.body.heightFeet : user.heightFeet;
+    let heightInches = req.body.heightInches ? req.body.heightInches : user.heightInches;
+
+    if (targetWeight > weight) {
+      delta = 1000;
+    } else if (targetWeight < weight) {
+      delta = -200;
+    } else {
+      delta = 0;
+    }
+
+    let new_calories;
+ 
+      new_calories =
+        66 +
+        6.2 * weight +
+        12.7 * heightFeet * 12 +
+        12.7 * heightInches -
+        6.76 * 24 +
+        delta;
+
+    
+
+    User.findByIdAndUpdate(user_id, { $set: req.body, targetCalories: new_calories }, { new: true }).then((user) => {
+      return res.json(user)
+    }).catch((error) => {
+      return res.json(error)
+    })
+  }) 
+  // let delta;
+  // let targetWeight = req.body.targetWeight ? req.body.targetWeight : user.targetWeight; 
+  // let weight = req.body.weight ? req.body.weight : user.weight; 
+  // let heightFeet = req.body.heightFeet ? req.body.heightFeet : user.heightFeet; 
+  // let heightInches = req.body.heightInches ? req.body.heightInches: user.heightInches; 
+
+  // if (targetWeight > weight) {
+  //   delta = 1000;
+  // } else if (targetWeight < weight) {
+  //   delta = -200;
+  // } else {
+  //   delta = 0;
+  // }
+
+  // let new_calories;
+  // if ("Male" === "Male") {
+  //     new_calories =
+  //     66 +
+  //     6.2 * weight +
+  //     12.7 * heightFeet * 12 +
+  //     12.7 * heightInches -
+  //     //6.76 * user.age +
+  //     delta;
+  // } else {
+  //     new_calories =
+  //     655.1 +
+  //     4.35 * weight +
+  //     4.7 * heightFeet * 12 +
+  //     4.7 * heightInches -
+  //     //4.7 * user.age +
+  //     delta;
+  // }
+
+  // debugger; 
+  // let new_target = user.targetCalories - 1000; 
   
-  User.findByIdAndUpdate(user_id, { $set: req.body }, {new: true}).then((user) => {
-    return res.json(user)
-  }).catch((error) => {
-    return res.json(error)
-  })
+  // User.findByIdAndUpdate(user_id, { $set: req.body, targetCalories: new_target }, {new: true}).then((user) => {
+  //   return res.json(user)
+  // }).catch((error) => {
+  //   return res.json(error)
+  // })
+
 })
 
 module.exports = router;

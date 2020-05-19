@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import { fetchUserMeals, fetchMeal } from "./actions/meal_actions";
-import {editUserProfile, getUserProfile} from './actions/user_actions'
+import {editUserProfile} from './actions/user_actions'
 import {editProfile, getProfile} from './util/user_util'
 
 document.addEventListener("DOMContentLoaded", () => {
