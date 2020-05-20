@@ -21,6 +21,7 @@
   display: inline-block;
   width: 140px;
   text-align: left;
+  
 }
 
 .update-errors-ul{
@@ -43,3 +44,4 @@
   padding-right: 10px; 
   padding-left: 4px; 
 }
+
