@@ -1,5 +1,6 @@
 import React from "react";
 import "./user_profile.css";
+import "./edit_user_profile.css"; 
 class UserProfile extends React.Component {
   constructor(props){
     super(props); 
@@ -17,9 +18,26 @@ class UserProfile extends React.Component {
     this.update = this.update.bind(this); 
     this.updateCheckBox2 = this.updateCheckBox2.bind(this); 
     this.checkedOrNah2 = this.checkedOrNah2.bind(this); 
+    debugger
   }
   componentDidMount() {
     this.props.getUserProfile(this.props.match.params.user_id);
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.user !== prevProps.user){
+      debugger
+      this.setState({
+        isEditing: false,
+        heightFeet: Number(this.props.user.heightFeet),
+        heightInches: Number(this.props.user.heightInches),
+        targetWeight: Number(this.props.user.targetWeight),
+        weight: Number(this.props.user.weight),
+        name: this.props.user.name,
+        diet: this.props.user.diet,
+        exclusions: this.props.user.exclusions ? this.props.user.exclusions : []
+      })
+    }
   }
   handleEdit(e){
     e.preventDefault(); 
@@ -37,6 +55,7 @@ class UserProfile extends React.Component {
       //target calories, 
       exclusions: this.state.exclusions
     }
+    debugger
  
     this.props.editUserProfile(this.props.match.params.user_id, new_user); 
     this.setState({isEditing: false}); 
@@ -120,7 +139,7 @@ class UserProfile extends React.Component {
                 </nav>
                 <nav className="user-info">
                   <p className="user-info-title">Target Calories</p>
-                  <p>{this.props.user.targetCalories}</p>
+                  <p>{Math.round(this.props.user.targetCalories)}</p>
                 </nav>
                 <nav className="user-info">
                   <p className="user-info-title">Height</p>
@@ -171,7 +190,7 @@ class UserProfile extends React.Component {
             <nav className="profile-header">
               <p>Information</p>
             </nav>
-            <form className='profile=form'>
+            <form className='profile-form'>
               <label>Name: 
                 <input type="text" onChange={this.update("name")} placeholder={this.props.user.name} />
               </label>
@@ -189,13 +208,14 @@ class UserProfile extends React.Component {
                     <option value="Halal">Halal</option>
                   </select>
               </label>
-              <label>Current Weight: 
+              <label>
+                Current Weight: 
                   <input type="text" onChange={this.update("weight")}placeholder={this.props.user.weight}/>
               </label>
                 <label>Target Weight:
                   <input type="text" onChange={this.update("targetWeight")} placeholder={this.props.user.targetWeight} />
                 </label>
-                <label>Height
+                <label>Height:
                   <input
                     type="number"
                     min="1"
@@ -213,6 +233,7 @@ class UserProfile extends React.Component {
                     placeholder={this.props.user.heightInches}
                   />
                 </label>
+                <label>Exclusions: 
                 <ul>
                   <li>
                     <label>
@@ -351,6 +372,7 @@ class UserProfile extends React.Component {
                   </label>
                   </li>
                 </ul>
+                </label>
 
               <button onClick={this.handleSubmit}>Submit</button>
             </form>
