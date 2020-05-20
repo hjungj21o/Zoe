@@ -170,7 +170,7 @@ class UserProfile extends React.Component {
                 <nav className="user-info">
                   <p className="user-info-title">Exclusions</p>
                   {/* <p>{this.props.user.exclusions}</p>  */}
-                  <ul>
+                  <ul className="user-exclusions-ul">
                     {exclusion_list}
                   </ul>
                   
@@ -212,14 +212,19 @@ class UserProfile extends React.Component {
             </nav>
             {errors_ul}
             <form className='profile-form'>
-              <label>Name: 
-                <input type="text" onChange={this.update("name")} placeholder={this.props.user.name} />
-              </label>
-              <label>Diet:
+              <nav className="user-info">
+                <label for="name">Name: </label>
+                <input type="text" name="name" onChange={this.update("name")} placeholder={this.props.user.name} />
+                </nav>
+              
+    
+              <nav className="user-info">
+                  <label for="diet">Diet:</label>
                
                   <select
                     value={this.state.diet ? this.state.diet : 'Regular'}
                     onChange={this.update("diet")}
+                    name="diet"
                   >
                     <option value="Regular">Regular</option>
                     <option value="Vegetarian">Vegetarian</option>
@@ -228,34 +233,44 @@ class UserProfile extends React.Component {
                     <option value="Kosher">Kosher</option>
                     <option value="Halal">Halal</option>
                   </select>
-              </label>
-              <label>
-                Current Weight: 
-                  <input type="text" onChange={this.update("weight")}placeholder={this.props.user.weight}/>
-              </label>
-                <label>Target Weight:
-                  <input type="text" onChange={this.update("targetWeight")} placeholder={this.props.user.targetWeight} />
-                </label>
-                <label>Height:
+              </nav>
+
+              <nav className="user-info">
+                  <label for="current-weight">Current Weight:</label>
+                  <input type="text" name="current-weight" onChange={this.update("weight")}placeholder={this.props.user.weight}/>
+              </nav>
+
+
+              <nav className="user-info">
+                <label for="target-weight">Target Weight:</label>
+                  <input type="text" name="target-weight" onChange={this.update("targetWeight")} placeholder={this.props.user.targetWeight} />
+              </nav>
+              <nav className="user-info">
+                <label for="height">Height:</label>
                   <input
                     type="number"
                     min="1"
                     max="9"
+                    name="height ft"
                     value={this.props.heightFeet}
                     onChange={this.update("heightFeet")}
                     placeholder={this.props.user.heightFeet}
                   />
+                  <div className="feet">ft.</div>
                   <input
                     type="number"
                     min="0"
                     max="11"
+                    name="height"
                     value={this.props.heightInches}
                     onChange={this.update("heightInches")}
                     placeholder={this.props.user.heightInches}
                   />
-                </label>
-                <label>Exclusions: 
-                <ul>
+                  <div className="inches">inches</div>
+                </nav>
+                <nav className="user-info">
+                <label for="exclusions">Exclusions: </label>
+                <ul name="exclusions">
                   <li>
                     <label>
                       <input
@@ -393,7 +408,7 @@ class UserProfile extends React.Component {
                   </label>
                   </li>
                 </ul>
-                </label>
+                </nav>
 
               <button onClick={this.handleSubmit}>Submit</button>
             </form>
