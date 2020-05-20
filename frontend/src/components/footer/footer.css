@@ -5,7 +5,12 @@
   font-family: "Roboto", sans-serif;
   height: 100px;
   width: 100%;
+  box-sizing: border-box;
   background-color: rgb(220, 220, 220);
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .dev-name {
@@ -30,7 +35,7 @@ ul.sites {
 
 .sites a > i {
   font-size: 20px;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   text-decoration: none;
 }
 
@@ -56,4 +61,9 @@ ul.sites {
 
 .sites {
   margin: 15px 0;
+}
+
+html, body, #root, .uhoh {
+  overflow-x: hidden;
+  height: 100%;
 }

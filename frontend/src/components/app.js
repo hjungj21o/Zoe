@@ -10,22 +10,27 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import MealShowPageContainer from "./meal_show/meal_show_page_container";
 import UserProfileContainer from "./user_profile/user_profile_container";
+// import Footer from "./footer/footer";
 
 const App = () => (
-  <div className="uhoh">
-    <NavBarContainer />
-    <Switch>
-      <AuthRoute exact path="/" component={HomePage} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/meals" component={MealIndexContainer} />
-      <ProtectedRoute
-        path="/users/profile/:user_id"
-        component={UserProfileContainer}
-      />
-    </Switch>
-    <Route path="/meals/:meal_id" component={MealShowPageContainer} />
-  </div>
+  <>
+    <div className="uhoh">
+      <NavBarContainer />
+      <Switch>
+        <AuthRoute exact path="/" component={HomePage} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path="/meals" component={MealIndexContainer} />
+        <ProtectedRoute
+          path="/users/profile/:user_id"
+          component={UserProfileContainer}
+        />
+      </Switch>
+      <Route path="/meals/:meal_id" component={MealShowPageContainer} />
+      
+    </div>
+    {/* <Footer klass="index-footer" /> */}
+  </>
 );
 
 export default App;

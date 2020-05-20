@@ -1,6 +1,7 @@
 import React from "react";
 import MealIndexItem from "./meal_index_item";
 import "./meals.css";
+import Footer from "../footer/footer";
 
 class DaysMealsCard extends React.Component {
   constructor(props) {
@@ -102,6 +103,7 @@ class DaysMealsCard extends React.Component {
             <nav className="days-meals">
               <ul>{days_meals}</ul>
             </nav>
+            <Footer klass="index-footer" />
           </ul>
         </div>
       </>

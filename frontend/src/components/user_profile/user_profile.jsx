@@ -118,7 +118,7 @@ class UserProfile extends React.Component {
       return (
         <div>
           <div className="profile-container">
-            <div className="profile-sidebar">
+            {/* <div className="profile-sidebar">
               <div className="profile-img">
                 <nav className="profile-header">
                   <p>Photo</p>
@@ -135,7 +135,7 @@ class UserProfile extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="profile-information">
               <nav className="profile-header">
                 <p>Information</p>
@@ -188,7 +188,7 @@ class UserProfile extends React.Component {
       return(
       <div>
         <div className="profile-container">
-          <div className="profile-sidebar">
+          {/* <div className="profile-sidebar">
             <div className="profile-img">
               <nav className="profile-header">
                 <p>Photo</p>
@@ -205,7 +205,7 @@ class UserProfile extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="profile-information">
             <nav className="profile-header">
               <p>Information</p>
@@ -213,13 +213,13 @@ class UserProfile extends React.Component {
             {errors_ul}
             <form className='profile-form'>
               <nav className="user-info">
-                <label for="name">Name: </label>
+                <label for="name">Name </label>
                 <input type="text" name="name" onChange={this.update("name")} placeholder={this.props.user.name} />
                 </nav>
               
     
               <nav className="user-info">
-                  <label for="diet">Diet:</label>
+                  <label for="diet">Diet</label>
                
                   <select
                     value={this.state.diet ? this.state.diet : 'Regular'}
@@ -236,17 +236,17 @@ class UserProfile extends React.Component {
               </nav>
 
               <nav className="user-info">
-                  <label for="current-weight">Current Weight:</label>
+                  <label for="current-weight">Current Weight</label>
                   <input type="text" name="current-weight" onChange={this.update("weight")}placeholder={this.props.user.weight}/>
               </nav>
 
 
               <nav className="user-info">
-                <label for="target-weight">Target Weight:</label>
+                <label for="target-weight">Target Weight</label>
                   <input type="text" name="target-weight" onChange={this.update("targetWeight")} placeholder={this.props.user.targetWeight} />
               </nav>
               <nav className="user-info">
-                <label for="height">Height:</label>
+                <label for="height">Height</label>
                   <input
                     type="number"
                     min="1"
@@ -269,147 +269,148 @@ class UserProfile extends React.Component {
                   <div className="inches">inches</div>
                 </nav>
                 <nav className="user-info">
-                <label for="exclusions">Exclusions: </label>
-                <ul name="exclusions">
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="dairy"
-                        checked={this.checkedOrNah2("dairy")}
-                        onChange={this.updateCheckBox2("dairy")}
-                      />
-                    Dairy
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="egg"
-                        checked={this.checkedOrNah2("egg")}
-                        onChange={this.updateCheckBox2("egg")}
-                      />
-                    Eggs
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="Gluten Free"
-                        checked={this.checkedOrNah2("Gluten Free")}
-                        onChange={this.updateCheckBox2("Gluten Free")}
-                      />
-                    Gluten
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="grain"
-                        checked={this.checkedOrNah2("grain")}
-                        onChange={this.updateCheckBox2("grain")}
-                      />
-                    Grains
-                  </label>
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="peanut"
-                        checked={this.checkedOrNah2("peanut")}
-                        onChange={this.updateCheckBox2("peanut")}
-                      />
-                    Peanuts
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="seafood"
-                        checked={this.checkedOrNah2("seafood")}
-                        onChange={this.updateCheckBox2("seafood")}
-                      />
-                    Seafood
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="sesame"
-                        checked={this.checkedOrNah2("sesame")}
-                        onChange={this.updateCheckBox2("sesame")}
-                      />
-                    Sesame
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="shellfish"
-                        checked={this.checkedOrNah2("shellfish")}
-                        onChange={this.updateCheckBox2("shellfish")}
-                      />
-                    Shellfish
-                  </label>
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="soy"
-                        checked={this.checkedOrNah2("soy")}
-                        onChange={this.updateCheckBox2("soy")}
-                      />
-                    Soy
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="sulfite"
-                        checked={this.checkedOrNah2("sulfite")}
-                        onChange={this.updateCheckBox2("sulfite")}
-                      />
-                    Sulfite
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="tree nut"
-                        checked={this.checkedOrNah2("tree nut")}
-                        onChange={this.updateCheckBox2("tree nut")}
-                      />
-                    Tree Nuts
-                  </label>
-                  </li>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        name="wheat"
-                        checked={this.checkedOrNah2("wheat")}
-                        onChange={this.updateCheckBox2("wheat")}
-                      />
-                    Wheat
-                  </label>
-                  </li>
-                </ul>
+                <label for="exclusions">Exclusions </label>
+                <div className="exclusions-ul">
+                  <ul name="exclusions">
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="dairy"
+                          checked={this.checkedOrNah2("dairy")}
+                          onChange={this.updateCheckBox2("dairy")}
+                        />
+                      Dairy
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="egg"
+                          checked={this.checkedOrNah2("egg")}
+                          onChange={this.updateCheckBox2("egg")}
+                        />
+                      Eggs
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="Gluten Free"
+                          checked={this.checkedOrNah2("Gluten Free")}
+                          onChange={this.updateCheckBox2("Gluten Free")}
+                        />
+                      Gluten
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="grain"
+                          checked={this.checkedOrNah2("grain")}
+                          onChange={this.updateCheckBox2("grain")}
+                        />
+                      Grains
+                    </label>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="peanut"
+                          checked={this.checkedOrNah2("peanut")}
+                          onChange={this.updateCheckBox2("peanut")}
+                        />
+                      Peanuts
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="seafood"
+                          checked={this.checkedOrNah2("seafood")}
+                          onChange={this.updateCheckBox2("seafood")}
+                        />
+                      Seafood
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="sesame"
+                          checked={this.checkedOrNah2("sesame")}
+                          onChange={this.updateCheckBox2("sesame")}
+                        />
+                      Sesame
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="shellfish"
+                          checked={this.checkedOrNah2("shellfish")}
+                          onChange={this.updateCheckBox2("shellfish")}
+                        />
+                      Shellfish
+                    </label>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="soy"
+                          checked={this.checkedOrNah2("soy")}
+                          onChange={this.updateCheckBox2("soy")}
+                        />
+                      Soy
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="sulfite"
+                          checked={this.checkedOrNah2("sulfite")}
+                          onChange={this.updateCheckBox2("sulfite")}
+                        />
+                      Sulfite
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="tree nut"
+                          checked={this.checkedOrNah2("tree nut")}
+                          onChange={this.updateCheckBox2("tree nut")}
+                        />
+                      Tree Nuts
+                    </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="wheat"
+                          checked={this.checkedOrNah2("wheat")}
+                          onChange={this.updateCheckBox2("wheat")}
+                        />
+                      Wheat
+                    </label>
+                    </li>
+                  </ul>
+                </div>
                 </nav>
-
               <button onClick={this.handleSubmit}>Submit</button>
             </form>
           </div>

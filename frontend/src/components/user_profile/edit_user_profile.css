@@ -1,27 +1,28 @@
 .profile-form{
     padding: 25px 50px;
-  font-size: 15px;
+  /* font-size: 16px; */
   display: flex; 
   flex-direction: column;
   align-items: center;
   color: #666;
-  width: 50%;
+  width: 100%;
+  box-sizing: border-box;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
     margin: 0;
-    -webkit-font-smoothing: subpixel-antialiased;
-    
+    -webkit-font-smoothing: subpixel-antialiased;  
 }
 
-.profile-form label{
-  /* float: left;
-  width: 10em;
-  margin-right: 1em; */
-
+.profile-form label {
   display: inline-block;
-  width: 140px;
-  text-align: left;
-  
+  width: 50%;
+  text-align: left; 
+  font-size: 14px;
+  height: 25px;
+}
+
+.exclusions-ul label {
+  height: 15px;
 }
 
 .update-errors-ul{
@@ -36,7 +37,7 @@
 }
 
 .inches, .feet{
-  font-size: 10px; 
+  font-size: 14px; 
    color: #666; 
   display: flex; 
   justify-content: center;
@@ -45,3 +46,25 @@
   padding-left: 4px; 
 }
 
+.user-info ul {
+  padding: 0;
+  display: flex;
+}
+
+.user-info ul li {
+  width: 100px;
+}
+
+.user-info ul li label {
+  width: 100px;
+}
+
+.exclusions-ul {
+  width: 50%;
+  
+}
+
+.user-info input {
+  padding: 2px 5px;
+  font-size: 14px;
+}

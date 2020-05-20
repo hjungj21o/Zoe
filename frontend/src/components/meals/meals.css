@@ -1,6 +1,6 @@
 .uhoh {
   height: 100vh;
-
+  
 }
 
 .hideme {
@@ -222,6 +222,11 @@ i.fa-heart {
 .date-container {
   width: fit-content;
   margin: 0 auto;
+  bottom: 0;
+  margin-bottom: 150px;
+  height: 100vh;
+  /* position: absolute; */
+  box-sizing: border-box;
 }
 
 .date-container h1 {
