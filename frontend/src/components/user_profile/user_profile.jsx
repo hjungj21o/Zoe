@@ -18,15 +18,18 @@ class UserProfile extends React.Component {
     this.update = this.update.bind(this); 
     this.updateCheckBox2 = this.updateCheckBox2.bind(this); 
     this.checkedOrNah2 = this.checkedOrNah2.bind(this); 
-    debugger
+   
   }
   componentDidMount() {
     this.props.getUserProfile(this.props.match.params.user_id);
+    if (!this.props.edit_errors) {
+      this.setState({ isEditing: false });
+    }
   }
 
   componentDidUpdate(prevProps){
     if (this.props.user !== prevProps.user){
-      debugger
+     
       this.setState({
         isEditing: false,
         heightFeet: Number(this.props.user.heightFeet),
@@ -37,7 +40,9 @@ class UserProfile extends React.Component {
         diet: this.props.user.diet,
         exclusions: this.props.user.exclusions ? this.props.user.exclusions : []
       })
-    }
+    } 
+    
+
   }
   handleEdit(e){
     e.preventDefault(); 
@@ -45,6 +50,7 @@ class UserProfile extends React.Component {
   }
   handleSubmit(e){
     e.preventDefault(); 
+    this.props.clearEditErrors(); 
     let new_user = {
       heightFeet: Number(this.state.heightFeet),
       heightInches: Number(this.state.heightInches),
@@ -55,10 +61,12 @@ class UserProfile extends React.Component {
       //target calories, 
       exclusions: this.state.exclusions
     }
-    debugger
- 
-    this.props.editUserProfile(this.props.match.params.user_id, new_user); 
-    this.setState({isEditing: false}); 
+    
+    let that = this; 
+    this.props.editUserProfile(this.props.match.params.user_id, new_user)
+
+     
+   
   }
   update(field) {
    
@@ -86,7 +94,19 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    
+    let error_lis = [];
+    if (this.props.edit_errors){
+      Object.keys(this.props.edit_errors).forEach(err =>{
+        error_lis.push(<li>{this.props.edit_errors[err]}</li>)
+      }) 
+    }
+
+    let errors_ul; 
+    if (error_lis.length > 0){
+      errors_ul = <ul className="update-errors-ul">{error_lis}</ul>
+    }else{
+      errors_ul = <></> 
+    }
     let exclusion_list = [];
     if(this.props.user.exclusions){
       this.props.user.exclusions.forEach(ex => {
@@ -190,6 +210,7 @@ class UserProfile extends React.Component {
             <nav className="profile-header">
               <p>Information</p>
             </nav>
+            {errors_ul}
             <form className='profile-form'>
               <label>Name: 
                 <input type="text" onChange={this.update("name")} placeholder={this.props.user.name} />

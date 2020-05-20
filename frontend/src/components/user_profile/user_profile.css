@@ -129,3 +129,14 @@ button.add-btn:hover {
   width: 50%;
   font-weight: 500;
 }
+
+.update-errors-ul{
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 2px 0;
+  list-style: none;
+  font-size: 13px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 3px;
+}
