@@ -27,6 +27,10 @@
   box-shadow: 2px 2px 18px -2px rgba(0, 0, 0, 0.1);
 }
 
+p.user-info-title {
+  height: 25px;
+}
+
 .profile-image {
   display: flex;
   padding: 25px;
@@ -122,10 +126,20 @@ button.add-btn:hover {
   padding: 5px 0;
   text-transform: uppercase;
   font-size: 14px;
-  /* justify-content: space-between; */
+
 }
 
 .user-info-title {
   width: 50%;
   font-weight: 500;
+}
+
+.user-exclusions-ul{
+  color: #666;
+  font-family: "Roboto", sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: subpixel-antialiased;
+        text-transform: uppercase;
+    font-size: 14px;
+    
 }

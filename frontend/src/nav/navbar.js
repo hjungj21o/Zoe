@@ -11,6 +11,7 @@ class NavBar extends React.Component {
     this.getLinks = this.getLinks.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.demo = this.demo.bind(this); 
   }
 
   logoutUser(e) {
@@ -29,6 +30,13 @@ class NavBar extends React.Component {
   closeModal() {
     this.setState({ modal: "" });
   }
+  demo(){
+    let user = {
+      email: 'email@emailemail.com',
+      password: 'password'
+    }
+    this.props.login(user)
+  }
 
   // Selectively render links dependent on whether the user is logged in
   getLinks() {
@@ -36,7 +44,7 @@ class NavBar extends React.Component {
       return (
         <div className="profile-logout">
           <Link to={`/users/profile/${this.props.userId}`}>
-            <button>
+            <button >
               <p>Profile</p>
             </button>
           </Link>
@@ -55,6 +63,9 @@ class NavBar extends React.Component {
           </Link>
           <button onClick={this.openModal}>
             <p>Login</p>
+          </button>
+          <button onClick={this.demo}>
+            <p>Demo Login</p>
           </button>
         </div>
       );

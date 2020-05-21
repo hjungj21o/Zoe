@@ -18,7 +18,7 @@ import "./footer.css";
 class Footer extends React.Component {
   render() {
     return (
-      <div className={`footer-container ${this.props.klass}`}>
+      <footer className={`footer-container ${this.props.klass}`}>
         <div className="dev-name">
           Haejun
           <ul className="sites">
@@ -150,7 +150,7 @@ class Footer extends React.Component {
             </li>
           </ul>
         </div>
-      </div>
+      </footer>
     );
   }
 }

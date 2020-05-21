@@ -1,4 +1,5 @@
 export const errorSelector = ({ errors, ui }) => {
+  debugger
   const { currentStep } = ui.signup;
   const { session } = errors;
 

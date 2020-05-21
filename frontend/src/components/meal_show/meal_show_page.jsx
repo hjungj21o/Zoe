@@ -73,7 +73,7 @@ class MealShowPage extends React.Component {
               </div> */}
             </div>
           </div>
-          <Footer klass="show-footer"/>
+          {/* <Footer klass="show-footer"/> */}
         </div>
       );
     } else {

@@ -6,6 +6,8 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import { fetchUserMeals, fetchMeal } from "./actions/meal_actions";
+import {editUserProfile} from './actions/user_actions'
+import {editProfile, getProfile} from './util/user_util'
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -34,6 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.fetchUserMeals = fetchUserMeals;
   window.fetchMeal = fetchMeal;
+  window.editUserProfile = editUserProfile; 
+  window.editProfile = editProfile; 
+  window.getProfile = getProfile; 
   //testend//
   const root = document.getElementById("root");
 

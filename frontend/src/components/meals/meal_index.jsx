@@ -63,7 +63,7 @@ class MealIndex extends React.Component {
         <div className="days">
           <div className="day-meal-container">{day_meal_cards}</div>
         </div>
-        <Footer klass="index-footer"/>
+        {/* <Footer klass="index-footer"/> */}
       </>
     );
   }
