@@ -103,7 +103,7 @@ class DaysMealsCard extends React.Component {
             <nav className="days-meals">
               <ul>{days_meals}</ul>
             </nav>
-            <Footer klass="index-footer" />
+            {/* <Footer klass="index-footer" /> */}
           </ul>
         </div>
       </>

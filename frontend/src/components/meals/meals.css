@@ -1,6 +1,13 @@
-.uhoh {
-  height: 100vh;
-  
+.about-btn {
+  position: fixed;
+  right: 45px;
+  bottom: 35px;
+  cursor: pointer;
+}
+
+.about-btn i {
+  font-size: 24px;
+  color: #363636;
 }
 
 .hideme {
@@ -222,11 +229,6 @@ i.fa-heart {
 .date-container {
   width: fit-content;
   margin: 0 auto;
-  bottom: 0;
-  margin-bottom: 150px;
-  height: 100vh;
-  /* position: absolute; */
-  box-sizing: border-box;
 }
 
 .date-container h1 {
