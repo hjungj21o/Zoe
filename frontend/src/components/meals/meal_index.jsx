@@ -44,6 +44,7 @@ class MealIndex extends React.Component {
   }
 
   render() {
+    
     let day_meal_cards = this.week.map((day, idx) => {
       return (
         <DaysMealsCard

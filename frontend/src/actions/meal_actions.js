@@ -21,8 +21,15 @@ export const clearMeals = () => ({
 export const fetchUserMeals = (data) => {
   return (dispatch) => {
     return MEALUtil.getUserMeals(data)
-      .then((meals) => dispatch(receiveUserMeals(meals)))
-      .catch((err) => console.log(err));
+      .then((meals) => {
+      
+        dispatch(receiveUserMeals(meals))
+      })
+      .catch((err) => {
+      
+        console.log(err)
+        
+      });
   };
 };
 
