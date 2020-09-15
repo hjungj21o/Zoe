@@ -64,9 +64,9 @@ class NavBar extends React.Component {
           <button onClick={this.openModal}>
             <p>Login</p>
           </button>
-          <button onClick={this.demo}>
+          {/* <button onClick={this.demo}>
             <p>Demo Login</p>
-          </button>
+          </button> */}
         </div>
       );
     }

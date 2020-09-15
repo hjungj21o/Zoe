@@ -11,11 +11,13 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
     mealDate: req.params.meal_date,
   })
     .then((meals) => {
+      debugger
       if (meals.length > 0) {
+       
         return res.json(meals);
       } else {
         const user = User.findById(req.params.user_id).then((user) => {
-          
+        
           axios({
             method: "GET",
             url:
@@ -34,8 +36,12 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
             },
           })
             .then((response) => {
+              
               data = response;
+              console.log(response); 
+              console.log("We are here"); 
               let meals = data.data.meals;
+              console.log("How many meals: ", meals.length);
               const resMeals = [];
               meals.forEach((meal) => {
                 let new_meal = new Meal({
