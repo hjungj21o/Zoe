@@ -11,7 +11,7 @@ router.get("/user/:user_id/meals/:meal_date", (req, res) => {
     mealDate: req.params.meal_date,
   })
     .then((meals) => {
-      debugger
+      
       if (meals.length > 0) {
        
         return res.json(meals);

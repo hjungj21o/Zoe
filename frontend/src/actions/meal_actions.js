@@ -22,11 +22,11 @@ export const fetchUserMeals = (data) => {
   return (dispatch) => {
     return MEALUtil.getUserMeals(data)
       .then((meals) => {
-        debugger
+      
         dispatch(receiveUserMeals(meals))
       })
       .catch((err) => {
-        debugger
+      
         console.log(err)
         
       });

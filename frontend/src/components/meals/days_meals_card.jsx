@@ -33,7 +33,7 @@ class DaysMealsCard extends React.Component {
   }
 
   handleClick(e) {
-    debugger
+    
     e.preventDefault();
 
     let id = this.props.currentUserId;
@@ -44,7 +44,7 @@ class DaysMealsCard extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+    
     let today = new Date();
     let id = this.props.currentUserId;
     let data = { userId: id, mealDate: this.dateString };
@@ -56,14 +56,14 @@ class DaysMealsCard extends React.Component {
     ) {
       
       this.props.fetchUserMeals(data).then((meals) => console.log(meals)).catch((error) => console.log(error)); 
-      debugger 
+       
     }
 
-    debugger
+    
   }
 
   render() {
-    debugger
+    
     let styleClass; 
    
     if (this.props.selectedDay.toString().split(" ")[0] === this.props.day.toString().split(" ")[0])
